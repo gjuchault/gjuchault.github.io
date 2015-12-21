@@ -3,6 +3,8 @@ $mainColor: #111;
 $scrollbarSize: 5px;
 $scrollbarThumb: rgba(0, 0, 0, 0.3);
 $scrollbarBackground: transparent;
+$sourceSans: 'Source Sans Pro', sans-serif;
+$lora: 'Lora', Georgia, serif;
 
 // Header
 $itemsBorderColor: #1abc9c;
@@ -14,7 +16,7 @@ $itemsHeight: 3.57rem;
 $mainBackgroundColor: #0d3745;
 
 $menuHeight: 134px;
-$menuFontFamily: 'Source Sans Pro';
+$menuFontFamily: $sourceSans;
 $menuBorder: 1px solid rgba(255, 255, 255, 0.6);
 $menuColor: #fff;
 $menuFontSize: 0.92rem;
@@ -53,7 +55,7 @@ $cardRadius: 2px;
 $cardMargin: 25px auto 0;
 $cardPadding: 30px 56px;
 $codeMargin: 10px 0;
-$articleFont: 'Lora', sans-serif;
+$articleFont: $lora;
 $articleFontSize: 17px;
 $articleLineHeight: 28px;
 $articleLinkColor: #3f51b5;
@@ -61,10 +63,12 @@ $articleHeaderSize: 100px;
 $articleMarginBottom: 20px;
 $articleTitleFontSize: 3rem;
 $cardPaddingSmallScreen: 30px 28px;
+$articleH2Size: 2rem;
+$articleH3Size: 2rem;
 
 // About
 $aboutColor: #444;
-$aboutFontFamily: 'Lora';
+$aboutFontFamily: $lora;
 $aboutFontSize: 17px;
 $aboutLineHeight: 28px;
 $cvBackground: $itemsBorderColor;

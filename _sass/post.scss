@@ -24,6 +24,16 @@ article .post-content > .content {
         margin: $codeMargin;
     }
 
+    h2 {
+        font-family: $lora;
+        font-size: $articleH2Size;
+    }
+
+    h3 {
+        font-family: $lora;
+        font-size: $articleH3Size;
+    }
+
     p {
         font-family: $articleFont;
         font-size: $articleFontSize;
