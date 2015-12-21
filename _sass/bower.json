@@ -1,0 +1,14 @@
+{
+  "name": "gjuchault",
+  "authors": [
+    "Gabriel Juchault <gabriel.juchault@gmail.com>"
+  ],
+  "description": "Gabriel Juchault's portfolio and blog",
+  "license": "MIT",
+  "homepage": "http://gjuchault.com",
+  "dependencies": {
+    "neat": "~1.7.2",
+    "bourbon": "~4.2.6",
+    "font-source-sans-pro": "~0.1.0"
+  }
+}

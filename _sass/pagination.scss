@@ -1,0 +1,24 @@
+.articles {
+    .articles-container {
+        .articles-page:first-child {
+            display: block;
+        }
+
+        .articles-page {
+            display: none;
+        }
+    }
+}
+
+.more-container {
+    color: #444;
+
+    .button-container {
+        padding: 0 100px;
+        width: 100%;
+
+        button {
+            width: 100%;
+        }
+    }
+}

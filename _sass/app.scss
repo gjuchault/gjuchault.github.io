@@ -1,0 +1,39 @@
+html {
+    height: 100%;
+    min-width: 310px;
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    @extends html;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    height: $scrollbarSize;
+    width: $scrollbarSize;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $scrollbarBackground;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumb;
+}
+
+main {
+    height: calc(100% - #{$menuHeight});
+}
+
+.content {
+    @include transition(transform .2s $curve);
+}
+
+
+a {
+    color: $articleLinkColor;
+}

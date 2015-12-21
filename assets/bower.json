@@ -1,0 +1,17 @@
+{
+  "name": "gjuchault",
+  "authors": [
+    "Gabriel Juchault <gabriel.juchault@gmail.com>"
+  ],
+  "description": "Gabriel Juchault's portfolio and blog",
+  "license": "MIT",
+  "homepage": "http://gjuchault.com",
+  "dependencies": {
+    "material-design-lite": "~1.0.6",
+    "vue": "~1.0.10",
+    "font-source-sans-pro": "~0.1.0",
+    "system.js": "~0.19.6",
+    "traceur": "~0.0.92",
+    "plugin-json": "https://github.com/systemjs/plugin-json.git#~0.1.0"
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="nojs">
+    {% include head.html %}
+    {% if page.url == "/" %} <body> {% else %} <body class="on-post"> {% endif %}
+        {% include header.html %}
+        {{ content }}
+
+        <script src="/assets/bower_components/system.js/dist/system.js"></script>
+        <script>
+            /* global System */
+            System.config({
+                baseURL   : '/assets/js',
+                map       : {
+                    traceur: '/assets/bower_components/traceur/traceur.js',
+                    json   : '/assets/bower_components/plugin-json/json.js'
+                },
+                transpiler: 'traceur',
+                globalEvaluationScope: false
+            });
+
+            System.import('main.js');
+        </script>
+    </body>
+</html>

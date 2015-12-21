@@ -1,0 +1,16 @@
+.slider {
+    height: 100%;
+    overflow: hidden;
+
+    .content {
+        height: 100%;
+        position: relative;
+
+        .page {
+            height: 100%;
+            float: left;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

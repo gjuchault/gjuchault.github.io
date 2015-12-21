@@ -1,0 +1,60 @@
+.on-post {
+    .menu {
+        /* Will be overrided if not viewing an article */
+        visibility: hidden;
+    }
+
+    main {
+        position: relative;
+        top: -1 * $newTopMain;
+    }
+}
+
+
+article .post-content {
+    padding: $postContentPadding;
+}
+
+article .post-content > .content {
+    border-radius: $cardRadius;
+    margin: $cardMargin;
+    padding: $cardPadding;
+
+    figure.highlight {
+        margin: $codeMargin;
+    }
+
+    p {
+        font-family: $articleFont;
+        font-size: $articleFontSize;
+        line-height: $articleLineHeight;
+        text-align: justify;
+    }
+
+    p.post-meta {
+        background: #fff;
+        left: 50%;
+        margin: 0;
+        padding: 0 6px;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+}
+
+article header {
+    background-color: #fff;
+    height: $articleHeaderSize;
+    margin-bottom: $articleMarginBottom;
+    padding: 0;
+
+    h1 {
+        text-align: center;
+        font-size: $articleTitleFontSize;
+    }
+}
+
+@include minMedia(0, $md) {
+    article .post-content > .content {
+        padding: $cardPaddingSmallScreen;
+    }
+}
