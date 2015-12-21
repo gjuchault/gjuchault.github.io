@@ -34,6 +34,10 @@ article .post-content > .content {
         font-size: $articleH3Size;
     }
 
+    img {
+        max-width: 100%;
+    }
+
     p {
         font-family: $articleFont;
         font-size: $articleFontSize;
