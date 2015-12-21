@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html class="nojs">
     {% include head.html %}
-    {% if page.url == "/" %} <body> {% else %} <body class="on-post"> {% endif %}
+    {% if page.url == "/" || page.url == "/index.html" %} <body> {% else %} <body class="on-post"> {% endif %}
         {% include header.html %}
-
-        {{ page.url }}
 
         {{ content }}
 
