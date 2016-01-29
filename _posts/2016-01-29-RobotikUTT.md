@@ -15,9 +15,9 @@ The robot uses mainly C++ and JavaScript.
 My first job was to create a Node module that would make a simple pathfinding over a bitmap. There are a lot of plugins already doing it well.
 The nuance here is that the plugin had to be performant (that means in C++), and supports everything we can expect from an advanced pathfinding library :
 
-    * Use a heap to optimize the lowest-cost finding operation
-    * Avoid reinspecting the same node
-    * Path simplification (8-directions)
+* Use a heap to optimize the lowest-cost finding operation
+* Avoid reinspecting the same node
+* Path simplification (8-directions)
 
 I did not used the [Jump Point Search](https://en.wikipedia.org/wiki/Jump_point_search) as it does not support avoiding corner crossing.
 
@@ -26,23 +26,23 @@ I did not used the [Jump Point Search](https://en.wikipedia.org/wiki/Jump_point_
 When I first looked into [PathFinding.js](https://github.com/qiao/PathFinding.js) (which I've heavily inspired my library of); I looked for an equivalent to the [heap](https://github.com/qiao/heap.js) node module.
 Actually there is two ways of making a heap queue in C++ :
 
-    1. Use a classic vector and call `make_heap`, `push_heap` etc.
-    2. Use a `priority_queue` that will do all the job for you
+1. Use a classic vector and call `make_heap`, `push_heap` etc.
+2. Use a `priority_queue` that will do all the job for you
 
 To compare one node to another and sort it, the priority queue needs a class with `()` operator overloaded :
 
-```cpp
+{% highlight cpp linenos %}
 bool HeapCompare_f::operator() (Node* x, Node* y) {
     return x->f > y->f;
 }
-```
+{% endhighlight %}
 
 Create your priority_queue like that :
 
-```cpp
+{% highlight cpp linenos %}
 // Node* is the item type, vector<Node*> the list type, and HeapCompare_f our comparison
 priority_queue<Node*, vector<Node*>, HeapCompare_f> openList;
-```
+{% endhighlight %}
 
 ### Reinspecting
 
@@ -61,7 +61,7 @@ As the path is starting from the target node (retrieve every parent from the tar
 should be reversed (in the backtrace function : `reverse(path.begin(), path.end());`).
 Here is what it looks like :
 
-```cpp
+{% highlight cpp linenos %}
 vector<vector<int>> smoothenPath(vector<vector<int>>* path) {
     vector<vector<int>> newPath(path->size(), vector<int>(2, 0));
 
@@ -120,7 +120,7 @@ vector<vector<int>> smoothenPath(vector<vector<int>>* path) {
 
     return newPath;
 }
-```
+{% endhighlight %}
 
 ## IA
 
@@ -128,7 +128,7 @@ My second job was to create sequences of promises, that should execute in sequen
 
 Here is what the API looks like for Sequences :
 
-```js
+{% highlight js linenos %}
 let seq = new Sequence();
 
 seq
@@ -144,7 +144,7 @@ seq
     .start();
 
 // Events in seq : started, next, error, stoped, finished
-```
+{% endhighlight %}
 
 This is used by the IA. By default the robot has some tasks to do, and it will follow them in order to complete its goals.
 But if something is wrong, then the robot has to evaulate where he is, where he can go and how many points that can make him win.
@@ -157,7 +157,7 @@ The communication is done by two ways : either by [CANbus](https://fr.wikipedia.
 
 The solution was making a modulable communication library with predefined « packets » that would be encoded in the less space possible. Here is was the final result looks like :
 
-```
+{% highlight js linenos %}
 import communication from './communication';
 let com    = new communication.transports.UART(null);
 let buffer = com.serializer(new communication.protocol.TestPacket(60)).raw;
@@ -168,7 +168,7 @@ let com2    = new communication.transports.CANBus(null);
 let buffer2 = com2.serializer(new communication.protocol.TestPacket(60)).raw;
 
 console.log(com2.parse(communication.protocol.TestPacket, buffer2));
-```
+{% endhighlight %}
 
 Of course, the API provides methods to send packets, but most of the job was to serialize and parse buffers.
 In fact I based my work on something similar to CANBus in the UART serializer :
@@ -177,23 +177,24 @@ Data size encoded in one or two byte (depending on the first bit — so encoded 
 There, on one byte, a « command id » is put (that identifies the packet type).
 Then comes the data buffer and finally a XOR checksum.
 
-The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.js` file.
+The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.` file.
 The parser create classes for every JSON files. This is made by JavaScript reflexion :
 
-```js
+{% highlight js linenos %}
 fs
     .readdirSync(__dirname)
-    .filter(file => file.slice(-5) === '.json')
+    .filter(file => file.slice(-5) === '.on')
     .map(file => require(path.join(__dirname, file)))
     .forEach(protocol => {
         packets[protocol.name] = class {
             ...
         };
     });
-```
+{% endhighlight %}
 
 And a packets looks like this :
-```json
+
+{% highlight js linenos %}
 {
     "name": "TestPacket",
     "id"  : 0,
@@ -204,7 +205,7 @@ And a packets looks like this :
         },
         ...
 }
-```
+{% endhighlight %}
 
 ## Links
 

@@ -1,3 +1,21 @@
+/* Scrollable code */
+.highlight pre code {
+    display: block;
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+.highlight .gutter {
+    margin-left: -1px;
+    position: fixed;
+    min-width: 21px;
+}
+
+.highlight .code {
+    padding-left: 22px;
+}
+
 pre {
     padding: 0 10px;
 }
@@ -6,7 +24,8 @@ td > pre {
     padding: 0 5px;
 }
 
-p > code {
+p > code,
+li > code {
     padding: 3px;
 }
 

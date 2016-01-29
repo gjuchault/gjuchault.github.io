@@ -53,6 +53,11 @@ article .post-content > .content {
         position: absolute;
         transform: translateX(-50%);
     }
+
+    li {
+        font-family: $articleFont;
+        font-size: $articleFontSize;
+    }
 }
 
 article header {
