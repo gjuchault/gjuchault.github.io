@@ -173,9 +173,10 @@ console.log(com2.parse(communication.protocol.TestPacket, buffer2));
 Of course, the API provides methods to send packets, but most of the job was to serialize and parse buffers.
 In fact I based my work on something similar to CANBus in the UART serializer :
 
-Data size encoded in one or two byte (depending on the first bit — so encoded on 7 or 15 bits).
-There, on one byte, a « command id » is put (that identifies the packet type).
-Then comes the data buffer and finally a XOR checksum.
+1. Data size encoded in one or two byte (depending on the first bit — so encoded on 7 or 15 bits)
+2. A « command id » is put (that identifies the packet type) (one byte)
+3. The data buffer
+4. A XOR checksum
 
 The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.js` file.
 The parser create classes for every JSON files. This is made by JavaScript reflexion :
