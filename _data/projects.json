@@ -81,7 +81,7 @@
         "icon": "public"
     },
     {
-        "picture": "assets/images/enseak.png",
+        "picture": "assets/images/enseack.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "https://github.com/RobotikUTT/enseack-2015/tree/centralServer",
@@ -91,7 +91,7 @@
             "Robotics",
             "Team"
         ],
-        "title": "Enseak",
+        "title": "Enseack",
         "desc": "Participed to an electronics competition with the robotics team. We realized a small prototype within 48 hours that was designed to evaluate benefits of a solar panel."
     }
 ]
