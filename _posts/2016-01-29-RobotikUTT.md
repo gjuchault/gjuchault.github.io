@@ -177,7 +177,7 @@ Data size encoded in one or two byte (depending on the first bit — so encoded 
 There, on one byte, a « command id » is put (that identifies the packet type).
 Then comes the data buffer and finally a XOR checksum.
 
-The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.` file.
+The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.js` file.
 The parser create classes for every JSON files. This is made by JavaScript reflexion :
 
 {% highlight js linenos %}
