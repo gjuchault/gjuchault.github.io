@@ -38,7 +38,7 @@ article .post-content > .content {
         max-width: 100%;
     }
 
-    p {
+    p, li {
         font-family: $articleFont;
         font-size: $articleFontSize;
         line-height: $articleLineHeight;
