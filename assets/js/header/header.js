@@ -108,14 +108,22 @@ export default {
             document.body.setAttribute('class', 'on-post');
         }
 
-        const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
-        setTimeout(() => {
-            this.changeTab({ currentTarget: loadedIndex });
-
+        const bindHashChange = () => {
             window.addEventListener('hashchange', () => {
                 const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
                 this.changeTab({ currentTarget: loadedIndex });
             });
-        });
+        };
+
+        if (location.hash.slice(1).length !== 0) {
+            const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
+            setTimeout(() => {
+                this.changeTab({ currentTarget: loadedIndex });
+                bindHashChange();
+            });
+        } else {
+            bindHashChange();
+        }
+
     }
 };
