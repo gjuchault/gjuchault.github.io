@@ -4,7 +4,7 @@ title: Creating a cool NPM package using ES2015, Babel, Travis and Coveralls
 categories: [js]
 ---
 
-Some time ago I created a small library called « fuzzyjs ». The goal was to have a simple browser script that filters an array based on a string that would make a fuzzy filter/search (similar to what you have in Sublime Text : `ao` matches `About` and also `Add folder`). The script is very light (~400b gzipped).
+Some time ago I created a small library called [fuzzyjs](https://github.com/gjuchault/fuzzyjs). The goal was to have a simple browser script that filters an array based on a string that would make a fuzzy filter/search (similar to what you have in Sublime Text : *ao* matches *About* and also *Add folder*). The script is very light (~400b gzipped).
 
 Since this project got it's small success (80 stars, and even a port in Go) I decided to rewrite it from scratch using what I learnt since : ES2015/Babel, UMD to support both the browser and node, Mocha for testing, Travis-CI, Istanbul, etc.
 
@@ -12,15 +12,15 @@ Here is a small tutorial.
 
 ## Project structure
 
-First things first, you need an empty directory to start your nice library. Create a package.json (using `npm init`) so you have a `package.json` ready.
+First things first, you need an empty directory to start your nice library. Create a package.json (using `npm init`) so you have a *package.json* ready.
 
-Then you can create an optional `.editorconfig`, a `.eslintrc`, a `LICENSE` and a `README.md`.
+Then you can create an optional *.editorconfig*, a *.eslintrc*, a *LICENSE* and a *README.md*.
 
-Then you can create directories `test` and `src`. In `test` you will place all your mocha files. In the `src` you will put your library file. If you need more than one file, consider using an `index.js` file that will require all the other files and export what you want. Be sure that your main file is set correctly in your package.json file (`"main": "build/index.js"` for example).
+Then you can create directories *test* and *src*. In *test* you will place all your mocha files. In the *src* you will put your library file. If you need more than one file, consider using an *index.js* file that will require all the other files and export what you want. Be sure that your main file is set correctly in your package.json file (`"main": "build/index.js"` for example).
 
-We will build our `src` directory in a `dist` directory (you can also choose `build` or `lib` of course).
+We will build our *src* directory in a *build* directory (you can also choose *dist* or *lib* of course).
 
-So the next step will be to create the `.gitignore` file :
+So the next step will be to create the *.gitignore* file :
 
 {% highlight sh linenos %}
 npm-debug.log
@@ -41,7 +41,7 @@ npm install --save-dev coveralls mocha
 
 ## ES2015 : Babel
 
-This has been written when Babel was at version 6. First we need to create a `.babelrc` file at the directory's root :
+This has been written when Babel was at version 6. First we need to create a *.babelrc* file at the directory's root :
 
 {% highlight json linenos %}
 {
@@ -50,7 +50,7 @@ This has been written when Babel was at version 6. First we need to create a `.b
 }
 {% endhighlight %}
 
-In the `package.json` we need a `build` script. This will be as simple as :
+In the *package.json* we need a `build` script. This will be as simple as :
 
 {% highlight json linenos %}
 {
@@ -76,7 +76,7 @@ src/fuzzy.js -> build/fuzzy.js
 
 ## Testing : Mocha & Istanbul
 
-In your `test` directory, you can write as many test files as you want. Using mocha, this will be as simple as something closed to :
+In your *test* directory, you can write as many test files as you want. Using mocha, this will be as simple as something closed to :
 
 {% highlight js linenos %}
 import assert from 'assert';
@@ -154,9 +154,9 @@ Which is so pretty.
 
 [Travis-CI](https://travis-ci.org/) is one of the most used continuous integration service. It's free for open-source. Use it all the time.
 
-Once you're logged using your GitHub account, start watching your repository. It will not work until you've added the `.travis.yml` (that I will describe below) and push it.
+Once you're logged using your GitHub account, start watching your repository. It will not work until you've added the *.travis.yml* (that I will describe below) and push it.
 
-The next step is : how I make Travis know how to install the library and test it. That is done using the `.travis.yml` file. Create an empty file at your repository's root :
+The next step is : how I make Travis know how to install the library and test it. That is done using the *.travis.yml* file. Create an empty file at your repository's root :
 
 {% highlight yaml linenos %}
 language: node_js
@@ -178,7 +178,7 @@ The `script` array is your test suite. If one of this command fails, Travis will
 
 ## Coveralls
 
-To get some nice code coverage report, you can either take your browser and open file `coverage/lcov-report/index.html` or you can start using [Coveralls](https://coveralls.io/). Coveralls is a nice tool (free for open-source) that integrates well with github and will watch your pull requests, commits etc. to show the coverage similarly to the lcov-report. The cool thing here is that you can use [Git Flow](https://github.com/nvie/gitflow) or [GitHub Flow](https://guides.github.com/introduction/flow/index.html) and, before merging your request, ensure every test passes (that's Travis-CI task) and that your coverage isn't hurt (that's Coveralls).
+To get some nice code coverage report, you can either take your browser and open file *coverage/lcov-report/index.html* or you can start using [Coveralls](https://coveralls.io/). Coveralls is a nice tool (free for open-source) that integrates well with github and will watch your pull requests, commits etc. to show the coverage similarly to the lcov-report. The cool thing here is that you can use [Git Flow](https://github.com/nvie/gitflow) or [GitHub Flow](https://guides.github.com/introduction/flow/index.html) and, before merging your request, ensure every test passes (that's Travis-CI task) and that your coverage isn't hurt (that's Coveralls).
 
 Coveralls is pretty easy to use. Once you're logged using GitHub, start watching your repository.
 Coveralls works with Travis well. We're going to add a small npm script for Coveralls, that will only be used with Travis :
@@ -195,9 +195,14 @@ Coveralls works with Travis well. We're going to add a small npm script for Cove
 }
 {% endhighlight %}
 
-This only takes the istanbul lcov report and sends it to coveralls. It will only work on Travis. If you start this command from your terminal, you will have an error similar to : `Bad response: 422 {"message":"Couldn't find a repository matching this job.","error":true}`.
+This only takes the istanbul lcov report and sends it to coveralls. It will only work on Travis. If you start this command from your terminal, you will have an error similar to :
 
-So how can we take this to Travis ? In the `.travis.yml` file, add the following lines :
+{% highlight json linenos %}
+Bad response: 422 {"message":"Couldn't find a repository matching this job.","error":true}
+{% endhighlight %}
+
+
+So how can we take this to Travis ? In the *.travis.yml* file, add the following lines :
 
 {% highlight yaml linenos %}
 after_script:
@@ -214,15 +219,15 @@ Now it's time to publish on NPM. You will need an account on the website, and yo
 npm run adduser
 {% endhighlight %}
 
-This will register to npm and create a `~/.npmrc` file. If you already have an account, this will just log in.
+This will register to npm and create a *~/.npmrc* file. If you already have an account, this will just log in.
 
-We want to make Travis publish for us. The thing is : on your npm package, you don't need the `src/` directory. This could be done using a `.npmignore` file, but as we already have a `.gitignore` file; npm will combine both of them. If you try to put `build/` in the `.gitignore` and `src/` in `.npmignore`, when installing your package you will see that you will have none of them.
+We want to make Travis publish for us. The thing is : on your npm package, you don't need the *src/* directory. This could be done using a *.npmignore* file, but as we already have a *.gitignore* file; npm will combine both of them. If you try to put *build/* in the *.gitignore* and *src/* in *.npmignore*, when installing your package you will see that you will have none of them.
 
-That is fixable in two ways: either you make a `prepublish` script that do `npm run build` and `rm -rf src/`. Or you use Travis `before_deploy` to do the same thing.
+That is fixable in two ways: either you make a `prepublish` script that do `npm run build` and `rm -rf*src/*. Or you use Travis `before_deploy` to do the same thing.
 
 I like the Travis way.
 
-Append this to your `.travis.yml` file:
+Append this to your *.travis.yml* file:
 
 {% highlight yaml linenos %}
 before_deploy:
@@ -230,9 +235,9 @@ before_deploy:
 - rm -rf src/
 {% endhighlight %}
 
-Next step : make Travis publish. I do love the `travis` executable (that you can get with `sudo gem install travis`). Start `travis setup npm`. It will ask for a few questions, and add nearly everything needed to your `.travis.yml` file.
+Next step : make Travis publish. I do love the `travis` executable (that you can get with `sudo gem install travis`). Start `travis setup npm`. It will ask for a few questions, and add nearly everything needed to your *.travis.yml* file.
 
-Nearly everything ? Yes. Travis is smart by default. Before publishing, it runs a `git stash` which will put your changes in a special folder so that you have a clean repo (similar to what you would have with `git checkout .`). Then it publishes. The fact is : stashing the changes will restore the `src/` directory and remove the `build/` one. So we need to explicitly disable the stashing part.
+Nearly everything ? Yes. Travis is smart by default. Before publishing, it runs a `git stash` which will put your changes in a special folder so that you have a clean repo (similar to what you would have with `git checkout .`). Then it publishes. The fact is : stashing the changes will restore the *src/* directory and remove the *build/* one. So we need to explicitly disable the stashing part.
 
 This can be done by addind `skip_cleanup: true` in the deploy part of your travis file:
 
@@ -248,7 +253,7 @@ When you want to make a PR, or just deploy a new version, update your package.js
 ![GitHub Travis Coveralls]({{ site.url }}/assets/images/githubTravisCoveralls.png)
 
 Final files:
-`package.json`
+*package.json*
 
 {% highlight json linenos %}
 {
@@ -294,7 +299,7 @@ Final files:
 }
 {% endhighlight %}
 
-`.travis.yml`:
+*.travis.yml*:
 
 {% highlight yaml linenos %}
 language: node_js
