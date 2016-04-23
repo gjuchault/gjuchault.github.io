@@ -100,5 +100,9 @@ export default {
         this.actualTab = 0;
 
         slider = new Slider(this.$els.slider);
+
+        if (location.pathname !== '/' && location.pathname !== '/index.html') {
+            document.body.setAttribute('class', 'on-post');
+        }
     }
 };
