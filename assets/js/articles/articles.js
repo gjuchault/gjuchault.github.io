@@ -14,9 +14,5 @@ export default {
         if (url.endsWith('/index.html')) {
             url = url.slice(0, -1 * '/index.html'.length);
         }
-
-        if (url !== location.origin) {
-            this.actualTab = 1;
-        }
     }
 };

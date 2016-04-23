@@ -19,6 +19,9 @@ export default {
          */
         changeTab(e) {
             this.actualTab = parseInt(e.currentTarget.getAttribute('data-index'), 10);
+
+            const slug    = e.currentTarget.getAttribute('data-slug');
+            location.hash = slug;
         },
 
         /**
@@ -104,5 +107,15 @@ export default {
         if (location.pathname !== '/' && location.pathname !== '/index.html') {
             document.body.setAttribute('class', 'on-post');
         }
+
+        const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
+        setTimeout(() => {
+            this.changeTab({ currentTarget: loadedIndex });
+
+            window.addEventListener('hashchange', () => {
+                const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
+                this.changeTab({ currentTarget: loadedIndex });
+            });
+        });
     }
 };

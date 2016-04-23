@@ -11,17 +11,20 @@
          @mousemove="moveMenu"
          @mouseup="stopDragMenu"
          @mouseleave="stopDragMenu">
-        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" data-index="0"
+        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+             data-index="0" data-slug="projects"
              v-el:tab0
              @click="changeTab">
             Projects
         </button>
-        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" data-index="1"
+        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+             data-index="1" data-slug="articles"
              v-el:tab1
              @click="changeTab">
             Articles
         </button>
-        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" data-index="2"
+        <button class="item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+             data-index="2" data-slug="about"
              v-el:tab2
              @click="changeTab">
             About / Resume
