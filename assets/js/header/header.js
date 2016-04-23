@@ -110,7 +110,14 @@ export default {
 
         const bindHashChange = () => {
             window.addEventListener('hashchange', () => {
-                const loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
+                let loadedIndex;
+
+                if (location.hash.slice(1).length === 0) {
+                    loadedIndex = document.querySelector('[data-slug=projects]');
+                } else {
+                    loadedIndex = document.querySelector(`[data-slug=${location.hash.slice(1)}]`);
+                }
+
                 this.changeTab({ currentTarget: loadedIndex });
             });
         };
