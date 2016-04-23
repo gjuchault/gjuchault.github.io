@@ -7,9 +7,6 @@ import header     from 'header/header.js';
 import articles   from 'articles/articles.js';
 import pagination from 'articles/pagination.js';
 
-import i18n from './i18n.js';
-i18n(Vue);
-
 Vue.config.delimiters = ['[[', ']]'];
 
 const components = [header, articles, pagination];
