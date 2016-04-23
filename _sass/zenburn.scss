@@ -13,7 +13,7 @@
 }
 
 .highlight .code {
-    padding-left: 22px;
+    padding-left: 27.5px;
 }
 
 pre {
@@ -25,7 +25,8 @@ td > pre {
 }
 
 p > code,
-li > code {
+li > code,
+em > code {
     padding: 3px;
 }
 
