@@ -51,10 +51,10 @@ My project looked like this: `index.js` creates the server, handle the service y
 
 {% highlight json linenos %}
 {
-    intent: 'showBonusCodes',
-    query: 'Can you list bet365 bonuscodes?',
-    parameters: {
-        bookmaker: 'bet365'
+    "intent": "showBonusCodes",
+    "query": "Can you list bet365 bonuscodes?",
+    "parameters": {
+        "bookmaker": "bet365"
     }
 }
 {% endhighlight %}
@@ -63,10 +63,10 @@ Or
 
 {% highlight json linenos %}
 {
-    intent: 'showBonusCodes',
-    query: 'Can you list bonuscodes?',
-    parameters: {
-        bookmaker: null
+    "intent": "showBonusCodes",
+    "query": "Can you list bonuscodes?",
+    "parameters": {
+        "bookmaker": null
     }
 }
 {% endhighlight %}
