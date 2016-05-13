@@ -36,7 +36,7 @@
             "Robotics",
             "Team"
         ],
-        "title": "pathfinding.js",
+        "title": "pathfindingjs",
         "desc": "A Node C++ addon made for a student robot. Implements optimized A* with the minimum C++ features. Used in the robotics french cup created with the robotics club."
     },
     {
