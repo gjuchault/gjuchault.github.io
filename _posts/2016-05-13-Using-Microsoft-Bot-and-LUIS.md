@@ -17,19 +17,19 @@ Creating an intent is easy: give it a title, give it an example and there you go
 
 Nothing genius here.
 
-[luis1.png]
+![Adding intent]({{ site.url }}/assets/images/luis1.png)
 
 Alternatively you can add pre-built entities that doesn't need training: RegExps and PreBuilt Entities (number, datetime, dimension, etc.).
 
 Then you start to type possible sentences (called "utterences") and train you bot. If it does not recognize the sentence, just set the intent in the list and select the entity. Then train your bot again and there you go.
 
-[luis2.png]
+![Adding utterences]({{ site.url }}/assets/images/luis2.png)
 
 A few other options are available: review all utterences ever submitted to your bot, filter by the one it didn't recognize, etc.
 
 LUIS exposes a link for testing purposes and answers JSON, which is great.
 
-[luis3.png]
+![JSON API]({{ site.url }}/assets/images/luis3.png)
 
 ### A few things missing
 
