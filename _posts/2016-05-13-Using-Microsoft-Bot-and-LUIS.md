@@ -47,7 +47,7 @@ Microsoft provides a step-by-step tutorial which is really cool. You're quickly 
 
 I also was able to very quickly use an alternative to LUIS: [api.ai](https://api.ai/) so that my company would choose which service they find best.
 
-My project looked like this: `index.js` creates the server, handle the service you want to use through an option, and when the user sends a message, it use a dispatcher (`dispatcher.luis.js` or `dispatcher.apiai.js`) that sends the request, get the answer and extract a JSON like that:
+My project looked like this: *index.js* creates the server, handle the service you want to use through an option, and when the user sends a message, it use a dispatcher (*dispatcher.luis.js* or *dispatcher.apiai.js*) that sends the request, get the answer and extract a JSON like that:
 
 {% highlight json linenos %}
 {
