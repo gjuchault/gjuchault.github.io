@@ -75,9 +75,14 @@ Or
 }
 {% endhighlight %}
 
-## A few things
+### A few things
 
 I may have not get the point of using endpoints as channels and did not used them. It's actually useful when you're not using LUIS but as I was using it for every request, I did not have to use channels.
 
+## Screenshots of final result
+
+![Facebook bot 1]({{ site.url }}/assets/images/bot1.png)
+![Facebook bot 2]({{ site.url }}/assets/images/bot2.png)
+![Facebook bot 3]({{ site.url }}/assets/images/bot3.png)
 
 You may find the repository on my GitHub account [here](https://github.com/gjuchault/demoDay-2016-05-13).
