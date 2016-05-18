@@ -1,8 +1,8 @@
 [
     {
         "picture": "assets/images/buckutt.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
+        "color": "fff",
+        "background": "0, 0, 0, 0.8",
         "repo": "https://github.com/BuckUTT/",
         "tags": [
             "Node.JS",
@@ -14,8 +14,8 @@
     },
     {
         "picture": "assets/images/nf04.png",
-        "color": "fff",
-        "background": "0, 0, 0, 0.8",
+        "color": "000",
+        "background": "255, 255, 255, 0.8",
         "repo": "https://github.com/gjuchault/nf04/",
         "tags": [
             "C++",
@@ -82,8 +82,8 @@
     },
     {
         "picture": "assets/images/enseack.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
+        "color": "fff",
+        "background": "0, 0, 0, 0.8",
         "repo": "https://github.com/RobotikUTT/enseack-2015/tree/centralServer",
         "tags": [
             "JS",
