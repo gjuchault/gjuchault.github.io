@@ -9,15 +9,14 @@
         <script async src="/assets/bower_components/system.js/dist/system.js" onload="loadJS()"></script>
         <script async>
             function loadStyleSheet (src) {
-                if (document.createStyleSheet) {
-                    document.createStyleSheet(src);
-                } else {
-                    var stylesheet  = document.createElement('link');
-                    stylesheet.href = src;
-                    stylesheet.rel  = 'stylesheet';
-                    stylesheet.type = 'text/css';
-                    document.getElementsByTagName('head')[0].appendChild(stylesheet);
-                }
+                fetch(src)
+                    .then(r => r.text())
+                    .then(t => {
+                        var style       = document.createElement('style');
+                        style.type      = 'text/css';
+                        style.innerHTML = t;
+                        document.getElementsByTagName('head')[0].appendChild(style);
+                    });
             }
 
             loadStyleSheet('/assets/bower_components/material-design-lite/material.min.css');
