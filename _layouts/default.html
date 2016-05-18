@@ -8,6 +8,21 @@
 
         <script defer src="/assets/bower_components/system.js/dist/system.js"></script>
         <script defer>
+            function loadStyleSheet (src) {
+                if (document.createStyleSheet) {
+                    document.createStyleSheet(src);
+                } else {
+                    var stylesheet  = document.createElement('link');
+                    stylesheet.href = src;
+                    stylesheet.rel  = 'stylesheet';
+                    stylesheet.type = 'text/css';
+                    document.getElementsByTagName('head')[0].appendChild(stylesheet);
+                }
+            }
+
+            loadStyleSheet('/assets/bower_components/material-design-lite/material.min.css');
+            loadStyleSheet('{{ "/css/main.css" | prepend: site.baseurl }}');
+
             /* global System */
             System.config({
                 baseURL   : '/assets/js',
