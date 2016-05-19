@@ -2,6 +2,18 @@
 
 import transitionEvent from './transitionEvent.js';
 
+if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = (function () {
+        return window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+    })();
+}
+
 export default class Slider {
     /**
      * Creates the slider
@@ -14,11 +26,12 @@ export default class Slider {
         this.$pages           = Array.from(this.$content.children);
         this.isTransitionning = false;
 
-        this.updateSizes();
-
-        window.addEventListener('resize', () => {
+        const triggerUpdate = () => {
             this.updateSizes();
-        });
+            requestAnimationFrame(triggerUpdate);
+        }
+
+        triggerUpdate();
     }
 
     /**
