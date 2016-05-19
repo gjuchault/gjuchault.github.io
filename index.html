@@ -47,7 +47,11 @@ layout: default
                         <div class="mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title">
                                 <h2 class="mdl-card__title-text">
-                                    {{ post.title }}
+                                    <span>{{ post.title }}</span>
+                                    <span class="post-date">
+                                        <span>&nbsp;&mdash;&nbsp;</span>
+                                        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+                                    </span>
                                 </h2>
                             </div>
                             <div class="mdl-card__supporting-text mdl-card--expand excerpt">

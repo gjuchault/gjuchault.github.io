@@ -38,6 +38,12 @@
                 font-weight: $itemTitleWeight;
                 font-family: $menuFontFamily;
                 font-size: $itemTitleSize;
+
+                .post-date {
+                    color: $articlesDateColor;
+                    font-size: $articlesDateFontSize;
+                    padding-top: 4px;
+                }
             }
 
             .material-icons {
