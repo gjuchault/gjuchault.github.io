@@ -25,7 +25,7 @@ Nothing genius here.
 
 Alternatively you can add pre-built entities that doesn't need training: RegExps and PreBuilt Entities (number, datetime, dimension, etc.).
 
-Then you start to type possible sentences (called "utterences") and train you bot. If it does not recognize the sentence, just set the intent in the list and select the entity. Then train your bot again and there you go.
+Then you start to type possible sentences (called "utterences") and train your bot. If it does not recognize the sentence, just set the intent in the list and select the entity. Then train your bot again and there you go.
 
 ![Adding utterences]({{ site.url }}/assets/images/luis2.png)
 
