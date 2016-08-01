@@ -12,7 +12,8 @@
     "node-waves": "^0.7.5",
     "normalize.css": "^4.2.0",
     "sass-loader": "^4.0.0",
-    "vue": "^2.0.0-beta.5"
+    "vue": "^2.0.0-beta.5",
+    "vue-router": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

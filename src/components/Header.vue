@@ -8,13 +8,13 @@
        @mousemove="moveMenu"
        @mouseup="stopDragMenu"
        @mouseleave="stopDragMenu">
-      <AppButton data-slug="projects" ref="tab0" @click="changeTab(0)">
+      <AppButton data-link="/" ref="tab0" @click="changeTab(0)">
         Projects
       </AppButton>
-      <AppButton data-slug="articles" ref="tab1" @click="changeTab(1)">
+      <AppButton data-link="/articles" ref="tab1" @click="changeTab(1)">
         Articles
       </AppButton>
-      <AppButton data-slug="about" ref="tab2" @click="changeTab(2)">
+      <AppButton data-link="/about" ref="tab2" @click="changeTab(2)">
         About / Resume
       </AppButton>
       <div class="underline" :style="underlineStyles"></div>
@@ -26,6 +26,7 @@
 import Button from './Button.vue';
 
 function actualTabChange(tab) {
+  console.log('[tab change]', tab);
   setTimeout(() => {
     const tabEl = this.$refs[`tab${tab}`].$el;
 
@@ -84,6 +85,11 @@ export default {
 
     changeTab(i) {
       this.actualTab = i;
+      console.log();
+
+      const link = this.$refs[`tab${i}`].$el.getAttribute('data-link');
+
+      this.$router.push(link);
     }
   },
 
@@ -91,8 +97,19 @@ export default {
     actualTab: actualTabChange
   },
 
-  created() {
-    actualTabChange.call(this, 0);
+  mounted() {
+    const button = Object
+      .keys(this.$refs)
+      .find(name => {
+        return this.$refs[name].$el.getAttribute('data-link') === this.$route.path;
+      });
+
+    if (button) {
+      this.actualTab = parseInt(button.slice('tab'.length), 10);
+      actualTabChange.call(this, this.actualTab);
+    } else {
+      actualTabChange.call(this, 0);
+    }
   }
 }
 </script>
@@ -163,20 +180,6 @@ header {
     position: absolute;
     margin-top: 13px;
     left: 10px;
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
   }
 
   .menu.showIconRight:after {
@@ -185,21 +188,6 @@ header {
     position: absolute;
     margin-top: -40px;
     right: 5px;
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    width: 25px;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
   }
 }
 </style>

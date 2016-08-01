@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <AppHeader></AppHeader>
-    <img src="../assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -12,11 +11,6 @@ import Header from './Header.vue';
 export default {
   components: {
     AppHeader: Header
-  },
-  data() {
-    return {
-      msg: 'Hello Vue 2.0!'
-    }
   }
 }
 </script>
@@ -27,6 +21,9 @@ export default {
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
+}
 
+#app > :last-child {
+  transition: opacity .15s ease;
 }
 </style>
