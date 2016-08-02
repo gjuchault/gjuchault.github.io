@@ -1,5 +1,5 @@
 <template>
-  <div>Projects.</div>
+  <div>About.</div>
 </template>
 
 <script>
@@ -9,5 +9,5 @@ export default {
     this.$el.offsetWidth; // reflow
     this.$el.style.opacity = 1;
   }
-};
+}
 </script>

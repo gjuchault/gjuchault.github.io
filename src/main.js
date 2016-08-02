@@ -7,20 +7,26 @@ Vue.use(VueRouter);
 
 import Projects from './components/Projects.vue';
 import Articles from './components/Articles.vue';
+import About    from './components/About.vue';
 
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
     {
-        path       : '/',
-        component  : Projects,
-        beforeEnter: beforeEnter
+      path       : '/',
+      component  : Projects,
+      beforeEnter
     },
     {
-        path       : '/articles',
-        component  : Articles,
-        beforeEnter: beforeEnter
+      path       : '/articles',
+      component  : Articles,
+      beforeEnter
+    },
+    {
+      path: '/about',
+      component: About,
+      beforeEnter
     }
   ]
 });
@@ -32,9 +38,11 @@ function beforeEnter(to, redirect, next) {
     return next();
   }
 
-  const actualPage = document.querySelector('#app > :last-child');
+  const actualPage = document.querySelector('#app > :last-child:not(header)');
 
-  actualPage.style.opacity = '0';
+  if (actualPage) {
+    actualPage.style.opacity = '0';
+  }
 
   setTimeout(() => {
     next();

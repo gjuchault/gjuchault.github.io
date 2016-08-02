@@ -167,7 +167,7 @@ header {
       background-color: $itemsBorderColor;
       height: $itemsBorderHeight;
       position: relative;
-      top: -1 * $itemsBorderHeight + 1px;
+      top: -1 * ($itemsBorderHeight + 1px);
       @include transition(left, width);
     }
   }
