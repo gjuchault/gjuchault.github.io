@@ -18,21 +18,19 @@ export default {
     raised  : Boolean,
     fab     : Boolean,
     colored : Boolean,
-    primary : Boolean,
-    accent  : Boolean
+    light   : { type: Boolean, default: true }
   },
   computed: {
     classes() {
+      console.log(this.light);
       return {
         'button'         : true,
         'waves-effect'   : true,
-        'waves-light'    : true,
+        'waves-light'    : this.light,
         'button--icon'   : this.icon,
         'button--raised' : this.raised,
         'button--fab'    : this.fab,
-        'button--colored': this.colored,
-        'button--primary': this.primary,
-        'button--accent' : this.accent
+        'button--colored': this.colored
       };
     }
   },
@@ -62,9 +60,8 @@ export default {
   min-width: 64px;
   padding: 0 16px;
   display: inline-block;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'SourceSansPro-Regular';
   font-size: 14px;
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0;
   overflow: hidden;
@@ -78,6 +75,11 @@ export default {
 
   &:hover {
     background-color: rgba(158, 158, 158, 0.2);
+  }
+
+  &.button--colored {
+    color: #fff;
+    background-color: $itemsBorderColor;
   }
 }
 

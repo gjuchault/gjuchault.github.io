@@ -126,15 +126,12 @@ header {
 
   h1 {
     border-bottom: $menuBorder;
-    font-family: $menuFontFamily;
     font-size: $nameSize;
-    font-weight: $nameWeight;
     margin: 0;
     padding-bottom: $namePadding;
 
     a {
       color: inherit;
-      font-weight: inherit;
       text-decoration: none;
     }
   }
@@ -148,7 +145,7 @@ header {
       color: $menuColor;
       cursor: pointer;
       display: inline-block;
-      font-family: $menuFontFamily;
+      font-family: 'SourceSansPro-ExtraLight', sans-serif;
       font-size: $menuFontSize;
       font-weight: $menuFontWidth;
       height: $itemsHeight;

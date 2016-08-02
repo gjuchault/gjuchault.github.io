@@ -5,9 +5,9 @@
 <script>
 export default {
   mounted() {
-    this.$el.style.opacity = 0;
-    this.$el.offsetWidth; // reflow
-    this.$el.style.opacity = 1;
+    this.$el.parentNode.style.opacity = 0;
+    this.$el.parentNode.offsetWidth; // reflow
+    this.$el.parentNode.style.opacity = 1;
   }
 }
 </script>

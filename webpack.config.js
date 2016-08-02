@@ -2,11 +2,11 @@ const path    = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry : './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path      : path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename  : 'build.js'
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),
@@ -14,26 +14,34 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.vue$/,
+        test  : /\.vue$/,
         loader: 'vue'
       },
       {
-        test: /\.js$/,
-        loader: 'babel',
+        test   : /\.js$/,
+        loader : 'babel',
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test  : /\.json$/,
+        loader: 'json'
+      },
+      {
+        test  : /\.(png|jpg|gif|svg)$/,
         loader: 'file',
-        query: {
+        query : {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test  : /\.(woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'base64-font-loader'
       }
     ]
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo            : true
   },
   devtool: '#source-map'
 }
