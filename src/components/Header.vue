@@ -170,20 +170,22 @@ header {
   }
 }
 
-@include minMedia(0px, 479px) {
+@include minMedia(0px, 450px) {
   .menu.showIconLeft:before {
-    content: '<';
-
-    position: absolute;
-    margin-top: 13px;
+    content: '\E408';
+    font-family: 'icomoon' !important;
+    font-size: 24px;
     left: 10px;
+    margin-top: 13px;
+    position: absolute;
   }
 
   .menu.showIconRight:after {
-    content: '>';
-
+    content: '\E409';
+    font-family: 'icomoon' !important;
+    font-size: 24px;
+    margin-top: -46px;
     position: absolute;
-    margin-top: -40px;
     right: 5px;
   }
 }

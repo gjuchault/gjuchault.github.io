@@ -20,6 +20,7 @@ export default {
 <style lang="sass">
 @import '../../node_modules/normalize.css';
 @import '../assets/fonts/fonts.css';
+@import '../assets/icons/style.css';
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -47,6 +48,7 @@ main {
 
 h1, h2, h3, h4, h5, h6, .sourcesans {
   font-family: 'SourceSansPro-ExtraLight', sans-serif;
+  font-weight: 300;
 }
 
 </style>
