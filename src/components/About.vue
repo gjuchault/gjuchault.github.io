@@ -5,6 +5,10 @@ h1 {
   margin-top: 0;
 }
 
+p {
+  text-align: justify;
+}
+
 .button-wrapper {
   display: inline-block;
 
