@@ -1,8 +1,7 @@
 <template>
   <button @click="click" :class="classes" :disabled="disabled">
-    <slot>
-      <i class="material-icons" v-if="icon">{{ icon }}</i>
-    </slot>
+    <i :class="iconClass" v-if="icon"></i>
+    <span><slot></slot></span>
   </button>
 </template>
 
@@ -22,7 +21,6 @@ export default {
   },
   computed: {
     classes() {
-      console.log(this.light);
       return {
         'button'         : true,
         'waves-effect'   : true,
@@ -32,6 +30,10 @@ export default {
         'button--fab'    : this.fab,
         'button--colored': this.colored
       };
+    },
+
+    iconClass() {
+      return `icon-${this.icon}`;
     }
   },
   methods: {
@@ -60,8 +62,6 @@ export default {
   min-width: 64px;
   padding: 0 16px;
   display: inline-block;
-  font-family: 'SourceSansPro-Regular';
-  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0;
   overflow: hidden;
@@ -80,6 +80,15 @@ export default {
   &.button--colored {
     color: #fff;
     background-color: $itemsBorderColor;
+  }
+
+  &.button--icon {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 5px;
+    }
   }
 }
 

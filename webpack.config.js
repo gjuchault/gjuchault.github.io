@@ -34,6 +34,10 @@ module.exports = {
         }
       },
       {
+        test  : /\.md$/,
+        loader: 'raw'
+      },
+      {
         test  : /\.(woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'base64-font-loader'
       }

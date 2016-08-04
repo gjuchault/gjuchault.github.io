@@ -22,15 +22,17 @@ export default {
 @import '../assets/fonts/fonts.css';
 @import '../assets/icons/style.css';
 
+@import '../main.scss';
+
 *, *:after, *:before {
   box-sizing: border-box;
 }
 
 html, body, #app {
-  font-family: 'SourceSansPro-Regular';
+  font-family: $sourceSansPro;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -43,12 +45,17 @@ body {
 }
 
 main {
-  padding: 15px;
+  padding: $mainPadding;
 }
 
 h1, h2, h3, h4, h5, h6, .sourcesans {
-  font-family: 'SourceSansPro-ExtraLight', sans-serif;
-  font-weight: 300;
+  font-family: $sourceSansPro;
+  font-weight: 200;
+}
+
+.lora {
+  font-family: $lora;
+  line-height: 1.15 !important;
 }
 
 </style>

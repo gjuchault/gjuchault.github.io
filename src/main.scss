@@ -3,6 +3,9 @@ $mainColor: #111;
 $scrollbarSize: 5px;
 $scrollbarThumb: rgba(0, 0, 0, 0.3);
 $scrollbarBackground: transparent;
+$mainPadding: 15px;
+$sourceSansPro: 'SourceSansPro', sans-serif;
+$lora: 'Lora', serif;
 
 $sm: 768px;
 $md: 992px;
@@ -14,44 +17,45 @@ $transitionDefaultCurve: cubic-bezier(0, 0, 0.2, 1);
 // Header
 $itemsBorderColor: #1abc9c;
 $itemsBorderHeight: 4px;
-$itemsMargin: 1.78rem;
-$itemsHeaderPadding: 1.07rem;
-$itemsHeight: 3.57rem;
+$itemsHeaderPadding: 16px;
+$itemsHeight: 57px;
 
 $mainBackgroundColor: #0d3745;
 
 $menuHeight: 134px;
 $menuBorder: 1px solid rgba(255, 255, 255, 0.6);
 $menuColor: #fff;
-$menuFontSize: 0.92rem;
-$menuFontWidth: 600;
+$menuFontSize: 15px;
 $menuPadding: 30px 30px 0 30px;
 
 $nameSize: 32px;
-$namePadding: 0.71rem;
+$namePadding: 11px;
 
-// Articles & Projects
-$itemsPadding: 0 20px;
-$itemPadding: 20px 0;
-$itemButtonIconColor: #444;
-$itemTitleSize: 2rem;
-$itemTitleWeight: 200;
-$itemTitlePadding: 5px 20px;
-$itemTextSize: 1rem;
-$noArticlesFontSize: 1.8rem;
+// Articles
 $articlesDateColor: #666;
-$articlesDateFontSize: 1.5rem;
+$articlesDateFontSize: 24px;
 
 // Projects
+$projectsPaddingBottom: 20px;
+$projectsHeaderPadding: 24px;
 $projectsHeaderHeight: 150px;
+$projectsMargin: 10px;
+$projectsTitlePadding: 5px 20px;
+$projectsTitleSize: 32px;
+$projectsInfosPadding: 16px;
+$projectsInfosColor: rgba(0, 0, 0, 0.6);
+$projectsButtonIconColor: #0d3745;
+$projectsButtonTextColor: #0d3745;
+$projectsButtonTextSize: 16px;
 
 // Tags
 $tagsBottom: 15px;
-$tagsRadius: .25rem;
+$tagsRadius: 4px;
 $tagsColor: #fff;
+$tagsMargin: 2px;
 $tagsSize: .75rem;
 $tagsWeight: 700;
-$tagsPadding: .2rem .6rem .2rem;
+$tagsPadding: 3px 10px 3px;
 
 // Posts
 $newTopMain: 65px;
@@ -64,10 +68,10 @@ $articleFontSize: 17px;
 $articleLineHeight: 28px;
 $articleLinkColor: #3f51b5;
 $articleMarginBottom: 40px;
-$articleTitleFontSize: 3rem;
+$articleTitleFontSize: 48px;
 $cardPaddingSmallScreen: 30px 28px;
-$articleH2Size: 2rem;
-$articleH3Size: 1.8rem;
+$articleH2Size: 32px;
+$articleH3Size: 30px;
 
 // About
 $aboutColor: #444;
@@ -95,6 +99,24 @@ $cvForeground: $menuColor;
   }
 }
 
+// Clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+      content: ' ';
+      display: table;
+  }
+
+  &:after {
+      clear: both;
+  }
+
+  & {
+      *zoom: 1;
+  }
+}
+
+// Transitions
 @mixin gpuTransition() {
   transform: translateZ(0);
 }

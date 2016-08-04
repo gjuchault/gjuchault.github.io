@@ -145,19 +145,15 @@ header {
       color: $menuColor;
       cursor: pointer;
       display: inline-block;
-      font-family: 'SourceSansPro-ExtraLight', sans-serif;
+      font-family: $sourceSansPro;
       font-size: $menuFontSize;
-      font-weight: $menuFontWidth;
+      font-weight: 400;
       height: $itemsHeight;
       letter-spacing: 2px;
       line-height: $itemsHeight;
       padding: 0 $itemsHeaderPadding;
       text-align: center;
       text-transform: uppercase;
-    }
-
-    .item:not(:first-child) {
-      margin-left: $itemsMargin;
     }
 
     .underline {
