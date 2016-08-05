@@ -3,11 +3,15 @@
     <div class="articles__article" v-for="article in articles">
       <Card>
         <div class="articles__article__title">
-          <h2>{{ article.title }} <small>— {{ article.date }}</small></h2>
+          <h2>
+            <a @click="linkToArticle(article)">
+              {{ article.title }} <small>— {{ article.date }}</small>
+            </a>
+          </h2>
         </div>
         <div class="articles__article__excerpt lora" v-html="article.excerpt"></div>
         <div class="card__footer">
-          <AppButton icon="read" :light="false" @click="goTo(project)">Read article ({{ article.words }} words)</AppButton>
+          <AppButton @click="linkToArticle(article)" icon="read" :light="false">Read article ({{ article.words }} words)</AppButton>
         </div>
       </Card>
     </div>
@@ -17,6 +21,7 @@
 <script>
 import Card        from './Card.vue';
 import Button      from './Button.vue';
+import * as slug   from 'slug';
 import * as fm     from 'front-matter';
 import * as marked from 'marked';
 
@@ -46,7 +51,7 @@ const articles          = articlesDirectory.keys()
       // Thanks to https://github.com/RadLikeWhoa/Countable
       words     : body.trim().replace(/['";:,.?¿\-!¡]+/g, '').match(/\S+/g).length
     };
-  })
+  });
 
 export default {
   components: { Card, AppButton: Button },
@@ -61,6 +66,18 @@ export default {
     this.$el.parentNode.style.opacity = 0;
     this.$el.parentNode.offsetWidth; // reflow
     this.$el.parentNode.style.opacity = 1;
+  },
+
+  methods: {
+    slug(t) {
+      return slug(t);
+    },
+
+    linkToArticle(article) {
+      const articleSlug = slug(article.title, { lower: true });
+
+      this.$router.push(`/articles/${articleSlug}`);
+    }
   }
 }
 </script>
@@ -78,7 +95,13 @@ export default {
 }
 
 .articles__article__title {
+  cursor: pointer;
   padding: 15px 15px 0 15px;
+
+  a {
+    color: initial;
+    text-decoration: initial;
+  }
 
   h2 {
     font-size: 32px;

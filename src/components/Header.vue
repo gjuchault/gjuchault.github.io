@@ -28,7 +28,7 @@ import Button from './Button.vue';
 function actualTabChange(tab) {
   console.log('[tab change]', tab);
   setTimeout(() => {
-    const tabEl = this.$refs[`tab${tab}`].$el;
+    const tabEl = this.$refs[`tab${tab}`].$el.children[0];
 
     this.underlineStyles = {
       left : (parseInt(tabEl.offsetLeft, 10) - 30) + 'px',
@@ -85,7 +85,6 @@ export default {
 
     changeTab(i) {
       this.actualTab = i;
-      console.log();
 
       const link = this.$refs[`tab${i}`].$el.getAttribute('data-link');
 
@@ -100,9 +99,10 @@ export default {
   mounted() {
     const button = Object
       .keys(this.$refs)
-      .find(name => {
-        return this.$refs[name].$el.getAttribute('data-link') === this.$route.path;
-      });
+      .filter(name => {
+        return this.$route.path.indexOf(this.$refs[name].$el.getAttribute('data-link')) > -1;
+      })
+      .pop();
 
     if (button) {
       this.actualTab = parseInt(button.slice('tab'.length), 10);

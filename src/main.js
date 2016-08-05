@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 
 import Projects from './components/Projects.vue';
 import Articles from './components/Articles.vue';
+import Article  from './components/Article.vue';
 import About    from './components/About.vue';
 
 const router = new VueRouter({
@@ -21,6 +22,12 @@ const router = new VueRouter({
     {
       path       : '/articles',
       component  : Articles,
+      beforeEnter
+    },
+    {
+      path     : '/articles/:articleTitle',
+      name     : 'article',
+      component: Article,
       beforeEnter
     },
     {

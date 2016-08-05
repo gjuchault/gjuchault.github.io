@@ -1,8 +1,14 @@
 <template>
-  <button @click="click" :class="classes" :disabled="disabled">
-    <i :class="iconClass" v-if="icon"></i>
-    <span><slot></slot></span>
-  </button>
+  <span>
+    <a :v-link="link" @click="click" :class="classes" :disabled="disabled" v-if="link">
+      <i :class="iconClass" v-if="icon"></i>
+      <span><slot></slot></span>
+    </a>
+    <button @click="click" :class="classes" :disabled="disabled" v-if="!link">
+      <i :class="iconClass" v-if="icon"></i>
+      <span><slot></slot></span>
+    </button>
+  </span>
 </template>
 
 <script>
@@ -12,6 +18,7 @@ Waves.init({ duration: 400 });
 
 export default {
   props: {
+    link    : Object,
     disabled: Boolean,
     icon    : String,
     raised  : Boolean,
@@ -26,8 +33,6 @@ export default {
         'waves-effect'   : true,
         'waves-light'    : this.light,
         'button--icon'   : this.icon,
-        'button--raised' : this.raised,
-        'button--fab'    : this.fab,
         'button--colored': this.colored
       };
     },
@@ -92,4 +97,7 @@ export default {
   }
 }
 
+a.button.button--icon {
+  display: inline-block;
+}
 </style>
