@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <AppHeader></AppHeader>
     <main>
       <router-view></router-view>
@@ -36,6 +36,7 @@ html, body, #app {
 }
 
 body {
+  color: #424242;
   font-family: Helvetica, sans-serif;
   margin: 0;
 }
@@ -56,6 +57,16 @@ h1, h2, h3, h4, h5, h6, .sourcesans {
 .lora {
   font-family: $lora;
   line-height: 1.15 !important;
+}
+
+hr {
+  border: 0;
+
+  border-top: 1px solid #ccc;
+  display: block;
+  height: 1px;
+  margin: 0;
+  padding: 0;
 }
 
 </style>

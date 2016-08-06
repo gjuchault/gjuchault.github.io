@@ -1,6 +1,6 @@
 [
     {
-        "picture": "/src/assets/buckutt.png",
+        "picture": "/src/assets/images/buckutt.png",
         "color": "fff",
         "background": "0, 0, 0, 0.8",
         "repo": "https://github.com/BuckUTT/",
@@ -13,7 +13,7 @@
         "desc": "An online ticketting student service, and a student card payment. Transits €200 000 per year, and is used by 3600 attendees at the « Gala » of the UTT."
     },
     {
-        "picture": "/src/assets/nf04.png",
+        "picture": "/src/assets/images/nf04.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "https://github.com/gjuchault/nf04/",
@@ -26,7 +26,7 @@
         "desc": "A complete IDE (autocompletion, syntax coloration) and a transpiler from custom pseudo-code to C++ to fit a algorithm course language. Used by students during the course."
     },
     {
-        "picture": "/src/assets/pathfindingjs.png",
+        "picture": "/src/assets/images/pathfindingjs.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "https://github.com/gjuchault/pathfindingjs",
@@ -40,7 +40,7 @@
         "desc": "A Node C++ addon made for a student robot. Implements optimized A* with the minimum C++ features. Used in the robotics french cup created with the robotics club."
     },
     {
-        "picture": "/src/assets/nextio.png",
+        "picture": "/src/assets/images/nextio.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "http://gjuchault.github.io/nextio/",
@@ -54,7 +54,7 @@
         "icon": "github"
     },
     {
-        "picture": "/src/assets/schedulerjs.png",
+        "picture": "/src/assets/images/schedulerjs.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "https://github.com/gjuchault/schedulerjs",
@@ -67,7 +67,7 @@
         "desc": "A JS plugin to manage Promises as sequences, to execute them in order (with a possible delay) and group sequences in a task. Used by the IA of the robotics club's robot."
     },
     {
-        "picture": "/src/assets/arena.png",
+        "picture": "/src/assets/images/arena.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
         "repo": "http://arena.utt.fr/",
@@ -81,7 +81,7 @@
         "icon": "globe"
     },
     {
-        "picture": "/src/assets/enseack.png",
+        "picture": "/src/assets/images/enseack.png",
         "color": "fff",
         "background": "0, 0, 0, 0.8",
         "repo": "https://github.com/RobotikUTT/enseack-2015/tree/centralServer",

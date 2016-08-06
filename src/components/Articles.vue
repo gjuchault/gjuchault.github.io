@@ -5,7 +5,7 @@
         <div class="articles__article__title">
           <h2>
             <a @click="linkToArticle(article)">
-              {{ article.title }} <small>— {{ article.date }}</small>
+              {{ article.title }} <small>— <time>{{ article.date }}</time></small>
             </a>
           </h2>
         </div>
@@ -22,36 +22,8 @@
 import Card        from './Card.vue';
 import Button      from './Button.vue';
 import * as slug   from 'slug';
-import * as fm     from 'front-matter';
-import * as marked from 'marked';
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-const articlesDirectory = require.context('../../data/posts', true, /\.md$/);
-const articles          = articlesDirectory.keys()
-  .map(fileName => {
-    return {
-      fileName,
-      body: articlesDirectory(fileName)
-    };
-  })
-  .map(article => {
-    const date          = new Date(article.fileName.slice(2, 12));
-    const parsedArticle = fm(article.body);
-    const body          = marked(parsedArticle.body);
-
-    const month = MONTHS[date.getMonth()];
-
-    return {
-      body      : body,
-      title     : parsedArticle.attributes.title,
-      categories: parsedArticle.attributes.categories,
-      date      : `${month} ${date.getDate()}, ${date.getFullYear()}`,
-      excerpt   : body.split('\n').shift(),
-      // Thanks to https://github.com/RadLikeWhoa/Countable
-      words     : body.trim().replace(/['";:,.?¿\-!¡]+/g, '').match(/\S+/g).length
-    };
-  });
+import * as articles from '../allArticles';
 
 export default {
   components: { Card, AppButton: Button },
@@ -66,6 +38,10 @@ export default {
     this.$el.parentNode.style.opacity = 0;
     this.$el.parentNode.offsetWidth; // reflow
     this.$el.parentNode.style.opacity = 1;
+
+    setTimeout(() => {
+      this.$root.$el.classList.remove('app--on-article')
+    });
   },
 
   methods: {

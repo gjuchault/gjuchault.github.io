@@ -34,18 +34,20 @@ p {
 </style>
 
 <template>
-  <Card>
-    <h1>About</h1>
-    <p v-for="line in cv.pretext" v-html="line">
-    </p>
-    <span v-for="cv in cv.cvs" :style="buttonSize" class="button-wrapper">
-      <AppButton :colored="true">
-        Download resume ({{ cv[0] }})
-      </AppButton>
-    </span>
-    <p v-for="line in cv.posttext" v-html="line">
-    </p>
-  </Card>
+  <div class="about">
+    <Card>
+      <h1>About</h1>
+      <p class="lora" v-for="line in cv.pretext" v-html="line">
+      </p>
+      <span v-for="cv in cv.cvs" :style="buttonSize" class="button-wrapper">
+        <AppButton :colored="true">
+          Download resume ({{ cv[0] }})
+        </AppButton>
+      </span>
+      <p class="lora" v-for="line in cv.posttext" v-html="line">
+      </p>
+    </Card>
+  </div>
 </template>
 
 <script>
@@ -76,3 +78,18 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+.about {
+  margin: 0 auto;
+  max-width: 1200px;
+
+  > .card {
+    padding: 30px 56px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+</style>

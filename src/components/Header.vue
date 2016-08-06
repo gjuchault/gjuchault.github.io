@@ -138,8 +138,14 @@ header {
 
   .menu {
     height: $itemsHeight;
-    white-space: nowrap;
+    opacity: 1;
     overflow: hidden;
+    transition: opacity .2s ease;
+    white-space: nowrap;
+
+    .app.app--on-article & {
+      opacity: 0;
+    }
 
     .button {
       color: $menuColor;
