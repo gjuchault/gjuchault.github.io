@@ -1,104 +1,15 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<main>
-    <div class="slider"
-         v-el:slider>
-        <div class="content">
-            <div class="page projects">
-                {% for project in site.data.projects %}
-                    <div class="project">
-                        <div class="mdl-card mdl-shadow--2dp">
-                            <div class="mdl-card__title" style="background: url('{{ project.picture }}') center / cover;">
-                                <h2 class="mdl-card__title-text" style="color: #{{ project.color }}; background-color: rgba({{ project.background }});">{{ project.title }}</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <div class="tags">
-                                    {% for tag in project.tags %}
-                                        <span class="tag">{{ tag }}</span>
-                                    {% endfor %}
-                                </div>
-                                {{ project.desc }}
-                            </div>
-                            <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ project.repo }}">
-                                    {% if project.icon %}
-                                        <i class="material-icons" style="color: #444;">{{ project.icon }}</i>
-                                        Details
-                                    {% else %}
-                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                            <path fill="#444" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-                                        </svg>
-                                        Details (on github)
-                                    {% endif %}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="page articles" style="height: 1px;" v-el:pagination>
-                {% if site.posts == empty %}
-                    <h4 class="empty">No articles for now.</h4>
-                {% endif %}
-                {% for post in site.posts %}
-                    <div class="article">
-                        <div class="mdl-card mdl-shadow--2dp">
-                            <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">
-                                    <span>{{ post.title }}</span>
-                                    <span class="post-date">
-                                        <span>&nbsp;&mdash;&nbsp;</span>
-                                        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
-                                    </span>
-                                </h2>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand excerpt">
-                                {{ post.excerpt }}
-                            </div>
-                            <div class="mdl-card__actions mdl-card--border">
-                                <a href="{{ post.url }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                    <i class="material-icons">subject</i>
-                                    Read article
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="page cv articles" style="height: 1px;">
-                <div class="article">
-                    <div class="mdl-card mdl-shadow--2dp">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">About</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text mdl-card--expend excerpt">
-                            {{ site.data.about.pretext | join: '<br>' }}
-                            <br>
-                            <br>
-                            {% for cv in site.data.about.cvs %}
-                                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="{{ cv[1] }}">
-                                    Download resume ({{ cv[0] }})
-                                </a>
-                            {% endfor %}
-                            <br>
-                            <br>
-                            {{ site.data.about.posttext | join: '<br>' }}
-                        </div>
-                    </div>
-                </div>
-                <div class="more-container"
-                     v-el:more-container>
-                    <div class="button-container">
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect"
-                                :disabled="!hasNextPage"
-                                @click="nextPage">
-                            Show more
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+    <title>Gabriel Juchault</title>
+    <meta name="description" content="Gabriel Juchault personal website">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
