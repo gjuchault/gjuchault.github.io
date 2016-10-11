@@ -70,13 +70,13 @@
         "picture": "/src/assets/images/arena.png",
         "color": "000",
         "background": "255, 255, 255, 0.8",
-        "repo": "http://arena.utt.fr/",
+        "repo": "http://ungdev.github.io/arena.utt.fr-2015/",
         "tags": [
             "JS",
             "HTML5",
             "Solo"
         ],
-        "title": "UTT Arena",
+        "title": "UTT Arena 2015",
         "desc": "A website consacred to the UTT Arena, a LAN party with 300 players. Parallax and game-like design, I also organized the event itself, including mounting a bridge scene, etc..",
         "icon": "globe"
     },
