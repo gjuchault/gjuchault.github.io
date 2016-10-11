@@ -27,7 +27,7 @@ module.exports = {
         loader: 'json'
       },
       {
-        test  : /\.(png|jpg|gif|svg)$/,
+        test  : /\.(png|jpg|gif|svg)(\?\w+)?$/,
         loader: 'file',
         query : {
           name: '[name].[ext]?[hash]'
@@ -38,7 +38,7 @@ module.exports = {
         loader: 'raw'
       },
       {
-        test  : /\.(woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test  : /\.(woff|woff2|ttf|eot)(\?\w+)?$/,
         loader: 'base64-font-loader'
       }
     ]

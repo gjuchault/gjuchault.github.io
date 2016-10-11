@@ -1,5 +1,5 @@
-import * as fm     from 'front-matter';
-import * as marked from 'marked';
+import fm from 'front-matter';
+import marked from 'marked';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
