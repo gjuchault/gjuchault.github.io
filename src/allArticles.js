@@ -23,10 +23,12 @@ const articles          = articlesDirectory.keys()
       title     : parsedArticle.attributes.title,
       categories: parsedArticle.attributes.categories,
       date      : `${month} ${date.getDate()}, ${date.getFullYear()}`,
+      fullDate  : date,
       excerpt   : body.split('\n').shift(),
       // Thanks to https://github.com/RadLikeWhoa/Countable
       words     : body.trim().replace(/['";:,.?¿\-!¡]+/g, '').match(/\S+/g).length
     };
-  });
+  })
+  .sort((a, b) => (b.fullDate - a.fullDate));
 
 module.exports = articles;
