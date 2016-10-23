@@ -1,9 +1,6 @@
 <template>
   <div class="article">
     <Card>
-      <div class="article__back">
-        <AppButton @click="back()" icon="back" :light="false">Back</AppButton>
-      </div>
       <h1 class="article__title">{{ article.title }}</h1>
       <div class="article__time lora">
         <time>{{ article.date }}</time>
@@ -43,12 +40,6 @@ export default {
     setTimeout(() => {
       this.$root.$el.classList.add('app--on-article')
     });
-  },
-
-  methods: {
-    back() {
-      this.$router.push('/articles');
-    }
   }
 }
 </script>
@@ -66,16 +57,6 @@ export default {
 
   > .card {
     padding: 30px 56px;
-  }
-
-  .article__back {
-    position: absolute;
-
-    button {
-      font-size: 22px;
-      padding: 4px 16px;
-      height: auto;
-    }
   }
 
   .article__title {
