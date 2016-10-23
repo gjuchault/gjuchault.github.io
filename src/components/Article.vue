@@ -101,4 +101,10 @@ export default {
     max-width: 100%;
   }
 }
+
+@media (max-width: 800px) {
+  .app.app--on-article .article {
+    width: 100%;
+  }
+}
 </style>
