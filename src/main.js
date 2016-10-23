@@ -34,6 +34,11 @@ const router = new VueRouter({
       path: '/about',
       component: About,
       beforeEnter
+    },
+    {
+      path: '*',
+      component  : Projects,
+      beforeEnter
     }
   ]
 });

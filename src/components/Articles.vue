@@ -19,9 +19,11 @@
 </template>
 
 <script>
-import Card        from './Card.vue';
-import Button      from './Button.vue';
-import * as slug   from 'slug';
+import Card   from './Card.vue';
+import Button from './Button.vue';
+import slug   from 'slug';
+
+console.log(slug);
 
 import * as articles from '../allArticles';
 
@@ -45,10 +47,6 @@ export default {
   },
 
   methods: {
-    slug(t) {
-      return slug(t);
-    },
-
     linkToArticle(article) {
       const articleSlug = slug(article.title, { lower: true });
 

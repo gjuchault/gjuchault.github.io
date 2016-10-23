@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import * as slug     from 'slug';
-import * as articles from '../allArticles';
+import slug     from 'slug';
+import articles from '../allArticles';
 
 import Button from './Button.vue';
 import Card   from './Card.vue';
@@ -25,6 +25,7 @@ export default {
   components: { Card, AppButton: Button },
 
   data() {
+    console.log(articles);
     const article = articles.find(art => {
       return slug(art.title, { lower: true }) === this.$route.params.articleTitle;
     });
