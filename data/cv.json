@@ -3,8 +3,8 @@
         "Hi ! I'm Gabriel Juchault, an undergraduate student in computer science. I'm currently at the University of Technology of Troyes for a MSc."
     ],
     "cvs": [
-        ["English", "/assets/CV.Gabriel.Juchault.EN.pdf"],
-        ["French", "/assets/CV.Gabriel.Juchault.FR.pdf"]
+        ["English", "/CV.Gabriel.Juchault.EN.pdf"],
+        ["French", "/CV.Gabriel.Juchault.FR.pdf"]
     ],
     "posttext": [
         "I'm pretty interested by development (web & software). I'm a huge fan of web programming (ES2015/2016, frameworks, etc.) but I am also a Node-lover.",

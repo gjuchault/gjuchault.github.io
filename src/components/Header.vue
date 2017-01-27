@@ -8,13 +8,13 @@
        @mousemove="moveMenu"
        @mouseup="stopDragMenu"
        @mouseleave="stopDragMenu">
-      <AppButton data-link="/" ref="tab0" @click="changeTab(0)">
+      <AppButton data-link="/" ref="tab0" @click="changeTab(0)" :span="true">
         Projects
       </AppButton>
-      <AppButton data-link="/articles" ref="tab1" @click="changeTab(1)">
+      <AppButton data-link="/articles" ref="tab1" @click="changeTab(1)" :span="true">
         Articles
       </AppButton>
-      <AppButton data-link="/about" ref="tab2" @click="changeTab(2)">
+      <AppButton data-link="/about" ref="tab2" @click="changeTab(2)" :span="true">
         About / Resume
       </AppButton>
       <div class="underline" :style="underlineStyles"></div>

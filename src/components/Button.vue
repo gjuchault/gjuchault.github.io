@@ -1,14 +1,14 @@
 <template>
-  <span>
-    <a :v-link="link" @click="click" :class="classes" :disabled="disabled" v-if="link">
+  <div :style="display">
+    <a @click="click" :class="classes" :href="href" :disabled="disabled" v-if="href">
       <i :class="iconClass" v-if="icon"></i>
       <span><slot></slot></span>
     </a>
-    <button @click="click" :class="classes" :disabled="disabled" v-if="!link">
+    <button @click="click" :class="classes" :disabled="disabled" v-if="!href">
       <i :class="iconClass" v-if="icon"></i>
       <span><slot></slot></span>
     </button>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -18,23 +18,31 @@ Waves.init({ duration: 400 });
 
 export default {
   props: {
-    link    : Object,
-    disabled: Boolean,
-    icon    : String,
-    raised  : Boolean,
-    fab     : Boolean,
-    colored : Boolean,
-    light   : { type: Boolean, default: true }
+    link     : Object,
+    href     : String,
+    disabled : Boolean,
+    icon     : String,
+    raised   : Boolean,
+    fab      : Boolean,
+    colored  : Boolean,
+    fullWidth: Boolean,
+    span     : Boolean,
+    light    : { type: Boolean, default: true }
   },
   computed: {
     classes() {
       return {
-        'button'         : true,
-        'waves-effect'   : true,
-        'waves-light'    : this.light,
-        'button--icon'   : this.icon,
-        'button--colored': this.colored
+        'button'           : true,
+        'waves-effect'     : true,
+        'waves-light'      : this.light,
+        'button--icon'     : this.icon,
+        'button--colored'  : this.colored,
+        'button--fullWidth': this.fullWidth
       };
+    },
+
+    display() {
+      return this.span ? { display: 'inline-block' } : { display: 'block' };
     },
 
     iconClass() {
@@ -94,6 +102,11 @@ export default {
     i {
       margin-right: 5px;
     }
+  }
+
+  &.button--fullWidth {
+    display: inline-block;
+    width: 100%;
   }
 }
 

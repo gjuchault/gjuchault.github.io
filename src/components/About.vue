@@ -40,7 +40,7 @@ p {
       <p class="lora" v-for="line in cv.pretext" v-html="line">
       </p>
       <span v-for="cv in cv.cvs" :style="buttonSize" class="button-wrapper">
-        <AppButton :colored="true">
+        <AppButton :colored="true" :href="cv[1]" :fullWidth="true">
           Download resume ({{ cv[0] }})
         </AppButton>
       </span>
