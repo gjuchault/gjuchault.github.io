@@ -17,8 +17,9 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 @import '../../node_modules/normalize.css';
+@import '../../node_modules/highlight.js/styles/agate.css';
 @import '../assets/fonts/fonts.css';
 @import '../assets/icons/style.css';
 

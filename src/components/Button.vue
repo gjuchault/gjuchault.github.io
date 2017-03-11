@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 @import '../../node_modules/node-waves/src/scss/waves.scss';
 @import '../main.scss';
 

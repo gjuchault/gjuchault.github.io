@@ -1,6 +1,5 @@
 <template>
-	<div class="slider"
-		 v-el:slider>
+	<div class="slider" ref="slider">
 		<div class="content">
 			<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 				<div class="post-content" itemprop="articleBody">
@@ -8,7 +7,7 @@
 						<header class="post-header mdl-color-text--grey-800">
 							<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
 							<p class="post-meta">
-								<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+								<time :datetime="page.date | date_to_xmlschema" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
 							</p>
 							<hr>
 						</header>

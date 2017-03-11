@@ -22,20 +22,20 @@ We will build our *src* directory in a *build* directory (you can also choose *d
 
 So the next step will be to create the *.gitignore* file :
 
-{% highlight sh linenos %}
+```sh
 npm-debug.log
 coverage/
 node_modules/
-{% endhighlight %}
+```
 
 I choose to not ignore the build directory so that people can install and use the library with git. But this is up to you.
 
 We can then start to install our dev modules :
 
-{% highlight sh linenos %}
+```sh
 npm install --save-dev babel-cli babel-preset-es2015 babel-istanbul
 npm install --save-dev coveralls mocha
-{% endhighlight %}
+```
 
 *Note: as my fuzzy library use `Object.assign` I also installed `babel-plugin-transform-object-assign`*.
 
@@ -43,16 +43,16 @@ npm install --save-dev coveralls mocha
 
 This has been written when Babel was at version 6. First we need to create a *.babelrc* file at the directory's root :
 
-{% highlight json linenos %}
+```json
 {
     "plugins": ["transform-object-assign"],
     "presets": ["es2015"]
 }
-{% endhighlight %}
+```
 
 In the *package.json* we need a `build` script. This will be as simple as :
 
-{% highlight json linenos %}
+```json
 {
     ...
     "scripts" : {
@@ -60,11 +60,11 @@ In the *package.json* we need a `build` script. This will be as simple as :
     }
     ...
 }
-{% endhighlight %}
+```
 
 From now on, if you start `npm run build` you should have something like that :
 
-{% highlight sh linenos %}
+```sh
 ➜  fuzzyjs git:(master) npm run build
 
 > fuzzyjs@1.0.4 build /home/gabriel/Workspace/fuzzyjs
@@ -72,13 +72,13 @@ From now on, if you start `npm run build` you should have something like that :
 
 src/fuzzy.js -> build/fuzzy.js
 ➜  fuzzyjs git:(master) ✗
-{% endhighlight %}
+```
 
 ## Testing : Mocha & Istanbul
 
 In your *test* directory, you can write as many test files as you want. Using mocha, this will be as simple as something closed to :
 
-{% highlight js linenos %}
+```js
 import assert from 'assert';
 import fuzzy from '../src';
 
@@ -87,13 +87,13 @@ describe('fuzzyjs', () => {
         assert.equal(1, 1);
     });
 });
-{% endhighlight %}
+```
 
 The interesting fact here is : we use ES2015 to write tests too.
 
 Based with that we will need a Mocha test. But, we will also use istanbul to have a nice code coverage. Here is what the test command should look like :
 
-{% highlight json linenos %}
+```json
 {
     ...
     "scripts" : {
@@ -102,7 +102,7 @@ Based with that we will need a Mocha test. But, we will also use istanbul to hav
     }
     ...
 }
-{% endhighlight %}
+```
 
 Let me explain a bit this test command.
 
@@ -113,7 +113,7 @@ Let me explain a bit this test command.
 
 If you start `npm test` you should see something like :
 
-{% highlight sh linenos %}
+```sh
 ➜  fuzzyjs git:(master) ✗ npm test
 
 > fuzzyjs@1.0.4 test /home/gabriel/Workspace/fuzzyjs
@@ -146,7 +146,7 @@ Functions    : 100% ( 4/4 )
 Lines        : 100% ( 36/36 )
 ================================================================================
 
-{% endhighlight %}
+```
 
 Which is so pretty.
 
@@ -158,7 +158,7 @@ Once you're logged using your GitHub account, start watching your repository. It
 
 The next step is : how I make Travis know how to install the library and test it. That is done using the *.travis.yml* file. Create an empty file at your repository's root :
 
-{% highlight yaml linenos %}
+```yaml
 language: node_js
 sudo: false
 node_js:
@@ -168,7 +168,7 @@ install:
 script:
 - npm run build
 - npm run test
-{% endhighlight %}
+```
 
 `language` is of course what language it uses, `sudo: false` is a parameter to tell Travis : I don't need sudo, so you can use Docker and maker faster builds. `node_js` array is which version you want to install (you can add multiple ones to test on node v4, iojs, or node v0.12).
 
@@ -183,7 +183,7 @@ To get some nice code coverage report, you can either take your browser and open
 Coveralls is pretty easy to use. Once you're logged using GitHub, start watching your repository.
 Coveralls works with Travis well. We're going to add a small npm script for Coveralls, that will only be used with Travis :
 
-{% highlight json linenos %}
+```json
 {
     ...
     "scripts" : {
@@ -193,21 +193,21 @@ Coveralls works with Travis well. We're going to add a small npm script for Cove
     }
     ...
 }
-{% endhighlight %}
+```
 
 This only takes the istanbul lcov report and sends it to coveralls. It will only work on Travis. If you start this command from your terminal, you will have an error similar to :
 
-{% highlight json linenos %}
+```json
 Bad response: 422 {"message":"Couldn't find a repository matching this job.","error":true}
-{% endhighlight %}
+```
 
 
 So how can we take this to Travis ? In the *.travis.yml* file, add the following lines :
 
-{% highlight yaml linenos %}
+```yaml
 after_script:
 - npm run coveralls
-{% endhighlight %}
+```
 
 Once the tests has been made in Travis, it'll run the coveralls. There coveralls will know that the travis build to be covered is this one, and it will display on the website the results of the tests, and of course the coverage.
 
@@ -215,9 +215,9 @@ Once the tests has been made in Travis, it'll run the coveralls. There coveralls
 
 Now it's time to publish on NPM. You will need an account on the website, and you will need to set up your npm to log in. In the terminal you can use this command :
 
-{% highlight sh linenos %}
+```sh
 npm run adduser
-{% endhighlight %}
+```
 
 This will register to npm and create a *~/.npmrc* file. If you already have an account, this will just log in.
 
@@ -229,11 +229,11 @@ I like the Travis way.
 
 Append this to your *.travis.yml* file:
 
-{% highlight yaml linenos %}
+```yaml
 before_deploy:
 - npm run build
 - rm -rf src/
-{% endhighlight %}
+```
 
 Next step : make Travis publish. I do love the `travis` executable (that you can get with `sudo gem install travis`). Start `travis setup npm`. It will ask for a few questions, and add nearly everything needed to your *.travis.yml* file.
 
@@ -241,21 +241,21 @@ Nearly everything ? Yes. Travis is smart by default. Before publishing, it runs 
 
 This can be done by addind `skip_cleanup: true` in the deploy part of your travis file:
 
-{% highlight yaml linenos %}
+```yaml
 ...
 deploy:
   skip_cleanup: true
   ...
-{% endhighlight %}
+```
 
 When you want to make a PR, or just deploy a new version, update your package.json's version field (use [semver](http://semver.org/)). Commit, and push. Travis will test, and deploy if everything is okay. If you go for a pull request, be ready to get amazed by GitHub/Travis/Coveralls stack :
 
-![GitHub Travis Coveralls]({{ site.url }}/assets/images/githubTravisCoveralls.png)
+![GitHub Travis Coveralls](/dist/githubTravisCoveralls.png)
 
 Final files:
 *package.json*
 
-{% highlight json linenos %}
+```json
 {
   "name": "fuzzyjs",
   "version": "1.0.4",
@@ -297,11 +297,11 @@ Final files:
   },
   "homepage": "https://github.com/gjuchault/fuzzyjs#readme"
 }
-{% endhighlight %}
+```
 
 *.travis.yml*:
 
-{% highlight yaml linenos %}
+```yaml
 language: node_js
 sudo: false
 node_js:
@@ -325,7 +325,7 @@ deploy:
     secure: IJ8px2r0JaUm2jHVZkOrRKuc6d//bBbVVlvWC1/UCGzlN4sYando0rn0D1nHTOpQFur7yPXVQOipmxhrC6JOSjloUkZXptSksj39vVxGUaQRBR0FRf4mEHvUe5oH9QfgJLreqi3+c4LI2qC34uFPjzVPtlnBhvEa4x3gcm2TdWE=
   on:
     repo: gjuchault/fuzzyjs
-{% endhighlight %}
+```
 
 Useful links :
 

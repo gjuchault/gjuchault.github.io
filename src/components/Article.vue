@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import slug     from 'slug';
-import articles from '../allArticles';
+import slugify  from 'slugify';
+import articles from '../articles.json';
 
 import Button from './Button.vue';
 import Card   from './Card.vue';
@@ -22,9 +22,8 @@ export default {
   components: { Card, AppButton: Button },
 
   data() {
-    console.log(articles);
     const article = articles.find(art => {
-      return slug(art.title, { lower: true }) === this.$route.params.articleTitle;
+      return slugify(art.title).toLowerCase() === this.$route.params.articleTitle;
     });
 
     return {
@@ -44,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 .article {
   .app.app--on-article & {
     background-color: #fff;

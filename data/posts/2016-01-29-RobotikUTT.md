@@ -31,18 +31,18 @@ Actually there is two ways of making a heap queue in C++ :
 
 To compare one node to another and sort it, the priority queue needs a class with `()` operator overloaded :
 
-{% highlight cpp linenos %}
+```cpp
 bool HeapCompare_f::operator() (Node* x, Node* y) {
     return x->f > y->f;
 }
-{% endhighlight %}
+```
 
 Create your priority_queue like that :
 
-{% highlight cpp linenos %}
+```cpp
 // Node* is the item type, vector<Node*> the list type, and HeapCompare_f our comparison
 priority_queue<Node*, vector<Node*>, HeapCompare_f> openList;
-{% endhighlight %}
+```
 
 ### Reinspecting
 
@@ -61,7 +61,7 @@ As the path is starting from the target node (retrieve every parent from the tar
 should be reversed (in the backtrace function : `reverse(path.begin(), path.end());`).
 Here is what it looks like :
 
-{% highlight cpp linenos %}
+```cpp
 vector<vector<int>> smoothenPath(vector<vector<int>>* path) {
     vector<vector<int>> newPath(path->size(), vector<int>(2, 0));
 
@@ -120,7 +120,7 @@ vector<vector<int>> smoothenPath(vector<vector<int>>* path) {
 
     return newPath;
 }
-{% endhighlight %}
+```
 
 ## IA
 
@@ -128,7 +128,7 @@ My second job was to create sequences of promises, that should execute in sequen
 
 Here is what the API looks like for Sequences :
 
-{% highlight js linenos %}
+```js
 let seq = new Sequence();
 
 seq
@@ -144,7 +144,7 @@ seq
     .start();
 
 // Events in seq : started, next, error, stoped, finished
-{% endhighlight %}
+```
 
 This is used by the IA. By default the robot has some tasks to do, and it will follow them in order to complete its goals.
 But if something is wrong, then the robot has to evaulate where he is, where he can go and how many points that can make him win.
@@ -157,7 +157,7 @@ The communication is done by two ways : either by [CANbus](https://fr.wikipedia.
 
 The solution was making a modulable communication library with predefined « packets » that would be encoded in the less space possible. Here is was the final result looks like :
 
-{% highlight js linenos %}
+```js
 import communication from './communication';
 let com    = new communication.transports.UART(null);
 let buffer = com.serializer(new communication.protocol.TestPacket(60)).raw;
@@ -168,7 +168,7 @@ let com2    = new communication.transports.CANBus(null);
 let buffer2 = com2.serializer(new communication.protocol.TestPacket(60)).raw;
 
 console.log(com2.parse(communication.protocol.TestPacket, buffer2));
-{% endhighlight %}
+```
 
 Of course, the API provides methods to send packets, but most of the job was to serialize and parse buffers.
 In fact I based my work on something similar to CANBus in the UART serializer :
@@ -181,7 +181,7 @@ In fact I based my work on something similar to CANBus in the UART serializer :
 The serializer just writes values on the buffer. Packets are defined by JSON files, parsed from the `index.js` file.
 The parser create classes for every JSON files. This is made by JavaScript reflexion :
 
-{% highlight js linenos %}
+```js
 fs
     .readdirSync(__dirname)
     .filter(file => file.slice(-5) === '.on')
@@ -191,11 +191,11 @@ fs
             ...
         };
     });
-{% endhighlight %}
+```
 
 And a packets looks like this :
 
-{% highlight js linenos %}
+```js
 {
     "name": "TestPacket",
     "id"  : 0,
@@ -206,7 +206,7 @@ And a packets looks like this :
         },
         ...
 }
-{% endhighlight %}
+```
 
 ## Links
 

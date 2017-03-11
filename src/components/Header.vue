@@ -114,7 +114,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 @import '../main.scss';
 
 header {
@@ -145,6 +145,7 @@ header {
 
     .app.app--on-article & {
       opacity: 0;
+      pointer-events: none;
     }
 
     .button {

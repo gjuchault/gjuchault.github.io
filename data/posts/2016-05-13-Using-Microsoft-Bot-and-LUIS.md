@@ -21,19 +21,19 @@ Creating an intent is easy: give it a title, give it an example and there you go
 
 Nothing genius here.
 
-![Adding intent]({{ site.url }}/assets/images/luis1.png)
+![Adding intent](/dist/luis1.png)
 
 Alternatively you can add pre-built entities that doesn't need training: RegExps and PreBuilt Entities (number, datetime, dimension, etc.).
 
 Then you start to type possible sentences (called "utterences") and train your bot. If it does not recognize the sentence, just set the intent in the list and select the entity. Then train your bot again and there you go.
 
-![Adding utterences]({{ site.url }}/assets/images/luis2.png)
+![Adding utterences](/dist/luis2.png)
 
 A few other options are available: review all utterences ever submitted to your bot, filter by the one it didn't recognize, etc.
 
 LUIS exposes a link for testing purposes and answers JSON, which is great.
 
-![JSON API]({{ site.url }}/assets/images/luis3.png)
+![JSON API](/dist/luis3.png)
 
 ### A few things
 
@@ -53,7 +53,7 @@ I also was able to use an alternative artificial intelligence to LUIS: [api.ai](
 
 My project looked like this: *index.js* creates the server, handle the service you want to use through a command option, and when the user sends a message, it use a dispatcher (*dispatcher.luis.js* or *dispatcher.apiai.js*) that sends the request, get the answer and extract a JSON like that:
 
-{% highlight json linenos %}
+```json
 {
     "intent": "showBonusCodes",
     "query": "Can you list bet365 bonuscodes?",
@@ -61,11 +61,11 @@ My project looked like this: *index.js* creates the server, handle the service y
         "bookmaker": "bet365"
     }
 }
-{% endhighlight %}
+```
 
 Or
 
-{% highlight json linenos %}
+```json
 {
     "intent": "showBonusCodes",
     "query": "Can you list bonuscodes?",
@@ -73,7 +73,7 @@ Or
         "bookmaker": null
     }
 }
-{% endhighlight %}
+```
 
 ### A few things
 
@@ -81,8 +81,8 @@ I may have not get the point of using endpoints as channels and did not used the
 
 ## Screenshots of final result
 
-![Facebook bot 1]({{ site.url }}/assets/images/bot1.png)
-![Facebook bot 2]({{ site.url }}/assets/images/bot2.png)
-![Facebook bot 3]({{ site.url }}/assets/images/bot3.png)
+![Facebook bot 1](/dist/bot1.png)
+![Facebook bot 2](/dist/bot2.png)
+![Facebook bot 3](/dist/bot3.png)
 
 You may find the repository on my GitHub account [here](https://github.com/gjuchault/demoDay-2016-05-13).

@@ -19,13 +19,11 @@
 </template>
 
 <script>
-import Card   from './Card.vue';
-import Button from './Button.vue';
-import slug   from 'slug';
+import Card    from './Card.vue';
+import Button  from './Button.vue';
+import slugify from 'slugify';
 
-console.log(slug);
-
-import * as articles from '../allArticles';
+import articles from '../articles.json';
 
 export default {
   components: { Card, AppButton: Button },
@@ -48,7 +46,7 @@ export default {
 
   methods: {
     linkToArticle(article) {
-      const articleSlug = slug(article.title, { lower: true });
+      const articleSlug = slugify(article.title).toLowerCase();
 
       this.$router.push(`/articles/${articleSlug}`);
     }
@@ -56,7 +54,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 @import '../main.scss';
 
 .articles__article {

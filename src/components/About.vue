@@ -1,4 +1,4 @@
-<style lang="sass" scoped>
+<style lang="scss" scoped>
 @import '../main.scss';
 
 h1 {
@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 .about {
   margin: 0 auto;
   max-width: 1200px;
