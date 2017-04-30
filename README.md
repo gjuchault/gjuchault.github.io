@@ -1,10 +1,10 @@
 # gjuchault.github.io
 
-[Personal website](https://gjuchault.github.io)
+> Gabriel Juchault website
 
 ## Build Setup
 
-```sh
+``` bash
 # install dependencies
 npm install
 
@@ -13,7 +13,6 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# build sitemap
-npm run sitemap
 ```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

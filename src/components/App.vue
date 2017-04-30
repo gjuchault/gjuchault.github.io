@@ -1,73 +1,82 @@
 <template>
-  <div id="app" class="app">
-    <AppHeader></AppHeader>
-    <main>
+  <div id="app">
+    <gj-header></gj-header>
+    <transition name="gj-fade">
       <router-view></router-view>
-    </main>
+    </transition>
   </div>
 </template>
 
 <script>
-import Header from './Header.vue';
+import GJHeader from './Header.vue'
+import 'highlight.js/styles/agate.css'
 
 export default {
+  name: 'app',
+
   components: {
-    AppHeader: Header
+    'gj-header': GJHeader
   }
 }
 </script>
 
-<style lang="scss">
-@import '../../node_modules/normalize.css';
-@import '../../node_modules/highlight.js/styles/agate.css';
-@import '../assets/fonts/fonts.css';
-@import '../assets/icons/style.css';
-
-@import '../main.scss';
-
+<style>
 *, *:after, *:before {
   box-sizing: border-box;
 }
 
-html, body, #app {
-  font-family: $sourceSansPro;
+
+html {
   height: 100%;
-  width: 100%;
-  overflow-x: hidden;
 }
 
 body {
-  color: #424242;
-  font-family: Helvetica, sans-serif;
+  font-family: Lato, sans-serif;
+  height: 100%;
   margin: 0;
+  overflow-y: auto;
 }
 
-#app > :last-child {
-  transition: opacity .15s ease;
-}
-
-main {
-  padding: $mainPadding;
-}
-
-h1, h2, h3, h4, h5, h6, .sourcesans {
-  font-family: $sourceSansPro;
+h1, h2, h3, h4, h5, h6 {
   font-weight: 200;
 }
 
-.lora {
-  font-family: $lora;
-  line-height: 1.15 !important;
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-hr {
-  border: 0;
-
-  border-top: 1px solid #ccc;
-  display: block;
-  height: 1px;
-  margin: 0;
-  padding: 0;
+.gj-card {
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+              0 3px 1px -2px rgba(0, 0, 0, .2),
+              0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
+.gj-card-hoverable {
+  transition: box-shadow .2s ease-out;
+}
+
+.gj-card-hoverable:hover {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14),
+              0 1px 10px 0 rgba(0, 0, 0, .12),
+              0 2px 4px -1px rgba(0, 0, 0, .2);
+  transition: box-shadow .2s ease-in;
+}
+
+/* Fade transition */
+.gj-fade-enter-active, .gj-fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+
+.gj-fade-enter-active {
+  transition-delay: .25s;
+}
+
+.gj-fade-enter, .gj-fade-leave-active {
+  opacity: 0
+}
 </style>

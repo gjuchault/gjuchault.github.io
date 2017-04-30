@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Using Microsoft Bot and LUIS
-categories: [js, ai]
 ---
 
 During my internship in [BetterCollective](http://bettercollective.com) I've had the chance to try out [Microsoft Bot](https://dev.botframework.com/) during a demo day —a day where everyone can try out anything and make a demo at the end of they day—. I also used [LUIS](https://luis.ai) to recognize sentences.
@@ -21,19 +19,19 @@ Creating an intent is easy: give it a title, give it an example and there you go
 
 Nothing genius here.
 
-![Adding intent](/dist/luis1.png)
+![Adding intent](../assets/luis1.png)
 
 Alternatively you can add pre-built entities that doesn't need training: RegExps and PreBuilt Entities (number, datetime, dimension, etc.).
 
 Then you start to type possible sentences (called "utterences") and train your bot. If it does not recognize the sentence, just set the intent in the list and select the entity. Then train your bot again and there you go.
 
-![Adding utterences](/dist/luis2.png)
+![Adding utterences](../assets/luis2.png)
 
 A few other options are available: review all utterences ever submitted to your bot, filter by the one it didn't recognize, etc.
 
 LUIS exposes a link for testing purposes and answers JSON, which is great.
 
-![JSON API](/dist/luis3.png)
+![JSON API](../assets/luis3.png)
 
 ### A few things
 
@@ -81,8 +79,8 @@ I may have not get the point of using endpoints as channels and did not used the
 
 ## Screenshots of final result
 
-![Facebook bot 1](/dist/bot1.png)
-![Facebook bot 2](/dist/bot2.png)
-![Facebook bot 3](/dist/bot3.png)
+![Facebook bot 1](../assets/bot1.png)
+![Facebook bot 2](../assets/bot2.png)
+![Facebook bot 3](../assets/bot3.png)
 
 You may find the repository on my GitHub account [here](https://github.com/gjuchault/demoDay-2016-05-13).

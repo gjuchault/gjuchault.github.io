@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Creating a cool NPM package using ES2015, Babel, Travis and Coveralls
-categories: [js]
 ---
 
 Some time ago I created a small library called [fuzzyjs](https://github.com/gjuchault/fuzzyjs). The goal was to have a simple browser script that filters an array based on a string that would make a fuzzy filter/search (similar to what you have in Sublime Text : *ao* matches *About* and also *Add folder*).
@@ -250,7 +248,7 @@ deploy:
 
 When you want to make a PR, or just deploy a new version, update your package.json's version field (use [semver](http://semver.org/)). Commit, and push. Travis will test, and deploy if everything is okay. If you go for a pull request, be ready to get amazed by GitHub/Travis/Coveralls stack :
 
-![GitHub Travis Coveralls](/dist/githubTravisCoveralls.png)
+![GitHub Travis Coveralls](./assets/githubTravisCoveralls.png)
 
 Final files:
 *package.json*

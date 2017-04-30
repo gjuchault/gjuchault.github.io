@@ -1,38 +1,35 @@
 {
-  "name": "gjuchault",
-  "description": "Personal website",
+  "name": "gjuchault.github.io",
+  "description": "Gabriel Juchault website",
+  "version": "1.0.0",
   "author": "Gabriel JUCHAULT <gabriel.juchault@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && npm run articles && npm run sitemap",
-    "articles": "node scripts/articles.generator",
-    "sitemap": "node scripts/sitemap.generator"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "gen": "node scripts/posts.generator && node scripts/resumes.generator"
   },
   "dependencies": {
     "front-matter": "^2.1.2",
+    "highlight.js": "^9.11.0",
     "marked": "^0.3.6",
-    "node-waves": "^0.7.5",
-    "normalize.css": "^5.0.0",
-    "slugify": "^1.1.0",
+    "typeface-lato": "^0.0.25",
     "vue": "^2.2.1",
-    "vue-router": "^2.3.0"
+    "vue-router": "^2.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
+    "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.0.0",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "highlight.js": "^9.10.0",
-    "node-sass": "^4.5.0",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^5.0.1",
-    "sitemap": "^1.11.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^4.0.0",
+    "css-loader": "^0.28.0",
+    "file-loader": "^0.11.1",
+    "slugify": "^1.1.0",
+    "style-loader": "^0.16.1",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^2.4.4"
   }
 }

@@ -1,35 +1,35 @@
 [
     {
-        "picture": "/src/assets/images/buckutt.png",
-        "color": "fff",
-        "background": "0, 0, 0, 0.8",
-        "repo": "https://github.com/BuckUTT/",
+        "picture": "./assets/buckutt.png",
+        "color": "#fff",
+        "background": "rgba(0, 0, 0, 0.8)",
+        "url": "https://github.com/BuckUTT/",
         "tags": [
             "Node.JS",
             "Angular",
             "Team"
         ],
         "title": "BuckUTT",
-        "desc": "An online ticketting student service, and a student card payment. Transits €200 000 per year, and is used by 3600 attendees at the « Gala » of the UTT."
+        "description": "An online ticketting student service, and a student card payment. Transits €200 000 per year, and is used by 3600 attendees at the « Gala » of the UTT."
     },
     {
-        "picture": "/src/assets/images/nf04.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
-        "repo": "https://github.com/gjuchault/nf04/",
+        "picture": "./assets/nf04.png",
+        "color": "#000",
+        "background": "rgba(255, 255, 255, 0.8)",
+        "url": "https://github.com/gjuchault/nf04/",
         "tags": [
             "C++",
             "Qt",
             "Solo"
         ],
         "title": "IDE & transpiler",
-        "desc": "A complete IDE (autocompletion, syntax coloration) and a transpiler from custom pseudo-code to C++ to fit a algorithm course language. Used by students during the course."
+        "description": "A complete IDE (autocompletion, syntax coloration) and a transpiler from custom pseudo-code to C++ to fit a algorithm course language. Used by students during the course."
     },
     {
-        "picture": "/src/assets/images/pathfindingjs.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
-        "repo": "https://github.com/gjuchault/pathfindingjs",
+        "picture": "./assets/pathfindingjs.png",
+        "color": "#000",
+        "background": "rgba(255, 255, 255, 0.8)",
+        "url": "https://github.com/gjuchault/pathfindingjs",
         "tags": [
             "C++",
             "ES2015",
@@ -37,54 +37,52 @@
             "Team"
         ],
         "title": "pathfindingjs",
-        "desc": "A Node C++ addon made for a student robot. Implements optimized A* with the minimum C++ features. Used in the robotics french cup created with the robotics club."
+        "description": "A Node C++ addon made for a student robot. Implements optimized A* with the minimum C++ features. Used in the robotics french cup created with the robotics club."
     },
     {
-        "picture": "/src/assets/images/nextio.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
-        "repo": "http://gjuchault.github.io/nextio/",
+        "picture": "./assets/nextio.png",
+        "color": "#000",
+        "background": "rgba(255, 255, 255, 0.8)",
+        "url": "http://gjuchault.github.io/nextio/",
         "tags": [
             "JS",
             "ES2015",
             "Solo"
         ],
         "title": "nextio",
-        "desc": "Proof of concept of a regular MVC pattern in NodeJS. Uses RethinkDB as databse, and provies a set of features as DI, routing, mail, internationalization, session, etc..",
-        "icon": "github"
+        "description": "Proof of concept of a regular MVC pattern in NodeJS. Uses RethinkDB as databse, and provies a set of features as DI, routing, mail, internationalization, session, etc.."
     },
     {
-        "picture": "/src/assets/images/schedulerjs.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
-        "repo": "https://github.com/gjuchault/schedulerjs",
+        "picture": "./assets/schedulerjs.png",
+        "color": "#000",
+        "background": "rgba(255, 255, 255, 0.8)",
+        "url": "https://github.com/gjuchault/schedulerjs",
         "tags": [
             "JS",
             "Robotics",
             "Team"
         ],
         "title": "schedulerjs",
-        "desc": "A JS plugin to manage Promises as sequences, to execute them in order (with a possible delay) and group sequences in a task. Used by the IA of the robotics club's robot."
+        "description": "A JS plugin to manage Promises as sequences, to execute them in order (with a possible delay) and group sequences in a task. Used by the IA of the robotics club's robot."
     },
     {
-        "picture": "/src/assets/images/arena.png",
-        "color": "000",
-        "background": "255, 255, 255, 0.8",
-        "repo": "http://ungdev.github.io/arena.utt.fr-2015/",
+        "picture": "./assets/arena.png",
+        "color": "#000",
+        "background": "rgba(255, 255, 255, 0.8)",
+        "url": "http://ungdev.github.io/arena.utt.fr-2015/",
         "tags": [
             "JS",
             "HTML5",
             "Solo"
         ],
         "title": "UTT Arena 2015",
-        "desc": "A website consacred to the UTT Arena, a LAN party with 300 players. Parallax and game-like design, I also organized the event itself, including mounting a bridge scene, etc..",
-        "icon": "globe"
+        "description": "A website consacred to the UTT Arena, a LAN party with 300 players. Parallax and game-like design, I also organized the event itself, including mounting a bridge scene, etc.."
     },
     {
-        "picture": "/src/assets/images/enseack.png",
-        "color": "fff",
-        "background": "0, 0, 0, 0.8",
-        "repo": "https://github.com/RobotikUTT/enseack-2015/tree/centralServer",
+        "picture": "./assets/enseack.png",
+        "color": "#fff",
+        "background": "rgba(0, 0, 0, 0.8)",
+        "url": "https://github.com/RobotikUTT/enseack-2015/tree/centralServer",
         "tags": [
             "JS",
             "HTML5",
@@ -92,6 +90,6 @@
             "Team"
         ],
         "title": "Enseack",
-        "desc": "Participed to an electronics competition with the robotics team. We realized a small prototype within 48 hours that was designed to evaluate benefits of a solar panel."
+        "description": "Participed to an electronics competition with the robotics team. We realized a small prototype within 48 hours that was designed to evaluate benefits of a solar panel."
     }
 ]
