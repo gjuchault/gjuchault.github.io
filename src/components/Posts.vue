@@ -24,3 +24,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.gj-posts {
+  padding: 0 15px;
+}
+</style>

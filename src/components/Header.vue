@@ -35,26 +35,38 @@ export default {
     },
 
     underlineStyle() {
+      this.calcUnderlines()
+
       return Object.assign({
         opacity: this.$route.meta.hideMenu ? 0 : 1
       }, this.underlines[this.index])
     }
   },
 
-  mounted() {
-    this.underlines = Array
-      .from(this.$refs.nav.children)
-      .map((link) => link.getBoundingClientRect().width)
-      .map((size, index, arr) => {
-        const prev = arr
-          .slice(0, index)
-          .reduce((a, b) => a + b, 0)
+  methods: {
+    calcUnderlines() {
+      if (!this.$refs.nav) {
+        return
+      }
 
-        return {
-          left: `${30 + prev}px`,
-          width: `${size}px`
-        }
-      })
+      this.underlines = Array
+        .from(this.$refs.nav.children)
+        .map((link) => link.getBoundingClientRect().width)
+        .map((size, index, arr) => {
+          const prev = arr
+            .slice(0, index)
+            .reduce((a, b) => a + b, 0)
+
+          return {
+            left: `${this.$refs.nav.getBoundingClientRect().left + prev}px`,
+            width: `${size}px`
+          }
+        })
+    }
+  },
+
+  mounted() {
+    this.calcUnderlines()
   }
 }
 </script>
@@ -62,7 +74,7 @@ export default {
 <style>
 .gj-header {
   background-color: #0d3745;
-  padding: 30px 30px 0;
+  padding: 20px 20px 0;
   position: relative;
 }
 
@@ -73,7 +85,7 @@ export default {
   font-size: 32px;
   font-weight: 200;
   margin: 0;
-  padding-bottom: 11px;
+  padding: 0 0 11px 16px;
 }
 
 .gj-header__nav {
@@ -85,7 +97,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-family: Lato, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   height: 57px;
   letter-spacing: 1px;
@@ -108,6 +120,7 @@ export default {
               0 3px 1px -2px rgba(0, 0, 0, .2),
               0 1px 5px 0 rgba(0, 0, 0, .12);
   color: #fff;
+  font-size: 13px;
   padding: 10px 14px;
   text-decoration: none;
   text-transform: uppercase;
@@ -125,5 +138,11 @@ export default {
   height: 4px;
   position: absolute;
   transition: left .2s ease, width .2s ease;
+}
+
+@media (max-width: 768px) {
+  .gj-header__title {
+    font-size: 28px;
+  }
 }
 </style>

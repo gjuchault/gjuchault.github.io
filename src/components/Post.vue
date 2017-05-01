@@ -4,7 +4,7 @@
     <div class="gj-post__date">
       <time>{{ post.date }}</time>
     </div>
-    <div class="gj-post__body" v-html="post.body"></div>
+    <div class="gj-post__body" ref="body" v-html="post.body"></div>
   </div>
 </template>
 
@@ -16,6 +16,16 @@ export default {
     const post = posts.find(post => post.slug === this.$route.params.article)
 
     return { post }
+  },
+
+  mounted() {
+    const $imgs = Array.from(this.$refs.body.querySelectorAll('img'))
+
+    $imgs.forEach(($img) => {
+      $img.addEventListener('click', () => {
+        location.href = $img.src
+      })
+    })
   }
 }
 </script>
@@ -23,11 +33,11 @@ export default {
 <style>
 .gj-post {
   background-color: #fdfdfd;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   max-width: 1000px;
   padding: 30px 56px;
   position: relative;
-  top: -50px;
+  top: -35px;
   width: 70%;
 }
 
@@ -74,6 +84,24 @@ export default {
 }
 
 .gj-post__body img {
+  cursor: pointer;
   max-width: 100%;
+}
+
+.gj-post__body h1,
+.gj-post__body h2,
+.gj-post__body h3,
+.gj-post__body h4,
+.gj-post__body h5,
+.gj-post__body h6 {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .gj-post {
+    margin: 0 auto;
+    padding: 15px 28px;
+    width: calc(100% - 10px);
+  }
 }
 </style>

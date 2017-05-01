@@ -54,4 +54,10 @@ export default {
   text-align: justify;
   width: 90%;
 }
+
+@media (max-width: 768px) {
+  .gj-post-card__title {
+    font-size: 28px;
+  }
+}
 </style>

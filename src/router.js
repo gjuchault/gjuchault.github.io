@@ -17,9 +17,4 @@ const router = new VueRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  console.log('triggerd', router.app)
-  next()
-})
-
 export default router

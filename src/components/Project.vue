@@ -117,4 +117,51 @@ export default {
   margin-bottom: 0;
   text-align: justify;
 }
+
+@media (min-width: 1250px) {
+  .gj-project-wrapper {
+    margin-right: calc(30px / 3);
+    width: calc((100% / 4) - (30px / 4));
+  }
+
+  .gj-project-wrapper:nth-child(3n) {
+    margin-right: calc(30px / 3);
+  }
+
+  .gj-project-wrapper:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gj-project-wrapper {
+    margin-right: calc(15px / 1);
+    width: calc((100% / 2) - (15px / 2));
+  }
+
+  .gj-project-wrapper:nth-child(3n) {
+    margin-right: calc(15px / 1);
+  }
+
+  .gj-project-wrapper:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .gj-project-wrapper {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .gj-project-wrapper:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .gj-project-wrapper:nth-child(2n) {
+    margin-right: 0;
+  }
+}
 </style>
