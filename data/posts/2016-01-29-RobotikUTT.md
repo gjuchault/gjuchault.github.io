@@ -1,7 +1,5 @@
 ---
-layout: post
 title: RobotikUTT
-categories: [utt, robotics]
 ---
 
 For the last few months, I helped the [RobotikUTT](http://robotikutt.github.io/) organization to create its future robot that it will present to the next [Robotics French Cup](http://www.planete-sciences.org/robot/?section=pages&pageid=79).

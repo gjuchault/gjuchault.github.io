@@ -1,195 +1,148 @@
-<template>
-  <header>
-    <h1>Gabriel Juchault</h1>
-
-    <div class="menu" draggable="true"
-       :class="{ showIconRight: showIconRight, showIconLeft: showIconLeft }"
-       @dragstart="startDragMenu"
-       @mousemove="moveMenu"
-       @mouseup="stopDragMenu"
-       @mouseleave="stopDragMenu">
-      <AppButton data-link="/" ref="tab0" @click="changeTab(0)" :span="true">
-        Projects
-      </AppButton>
-      <AppButton data-link="/articles" ref="tab1" @click="changeTab(1)" :span="true">
-        Articles
-      </AppButton>
-      <AppButton data-link="/about" ref="tab2" @click="changeTab(2)" :span="true">
-        About / Resume
-      </AppButton>
-      <div class="underline" :style="underlineStyles"></div>
-    </div>
-  </header>
+  <template>
+    <header class="gj-header">
+        <h1 class="gj-header__title">Gabriel Juchault</h1>
+        <nav class="gj-header__nav" ref="nav" :style="hasMenu">
+            <router-link to="/" class="gj-header__nav__link">Projects</router-link>
+            <router-link to="/posts" class="gj-header__nav__link">Posts</router-link>
+            <div class="gj-header__nav__space"></div>
+            <a class="gj-header__nav__button" :href="cv">Resume</a>
+        </nav>
+        <div class="gj-header__underline" :style="underlineStyle"></div>
+    </header>
 </template>
 
 <script>
-import Button from './Button.vue';
-
-function actualTabChange(tab) {
-  console.log('[tab change]', tab);
-  setTimeout(() => {
-    const tabEl = this.$refs[`tab${tab}`].$el.children[0];
-
-    this.underlineStyles = {
-      left : (parseInt(tabEl.offsetLeft, 10) - 30) + 'px',
-      width: tabEl.clientWidth + 'px'
-    };
-  });
-}
+import cv from '../resumes.json'
 
 export default {
-  components: { AppButton: Button },
-
   data() {
     return {
-      actualTab        : 0,
-      draggingMenu     : false,
-      initialMousePosX : 0,
-      intiialScrollLeft: 0,
-      underlineStyles  : null,
-      showIconRight    : true,
-      showIconLeft     : false
-    };
+      cv,
+      underlines: []
+    }
+  },
+
+  computed: {
+    hasMenu() {
+      return {
+        opacity: this.$route.meta.hideMenu ? 0 : 1,
+        pointerEvents: this.$route.meta.hideMenu ? 'none' : 'all'
+      }
+    },
+
+    index() {
+      return this.$route.meta.index
+    },
+
+    underlineStyle() {
+      this.calcUnderlines()
+
+      return Object.assign({
+        opacity: this.$route.meta.hideMenu ? 0 : 1
+      }, this.underlines[this.index])
+    }
   },
 
   methods: {
-    startDragMenu(e) {
-      e.preventDefault();
-
-      this.draggingMenu      = true;
-      this.initialMousePosX  = e.x;
-      this.intiialScrollLeft = e.currentTarget.scrollLeft;
-
-      console.log('[Drag start]');
-    },
-
-    moveMenu(e) {
-      if (!this.draggingMenu) {
-          return;
+    calcUnderlines() {
+      if (!this.$refs.nav) {
+        return
       }
 
-      console.log('[Drag]');
-      e.currentTarget.scrollLeft = this.intiialScrollLeft + this.initialMousePosX - e.x;
+      this.underlines = Array
+        .from(this.$refs.nav.children)
+        .map((link) => link.getBoundingClientRect().width)
+        .map((size, index, arr) => {
+          const prev = arr
+            .slice(0, index)
+            .reduce((a, b) => a + b, 0)
 
-      this.showIconRight = e.currentTarget.scrollWidth - e.currentTarget.offsetWidth -
-                           e.currentTarget.scrollLeft > 2;
-      this.showIconLeft  = e.currentTarget.scrollLeft > 2;
-    },
-
-    stopDragMenu(e) {
-      e.preventDefault();
-
-      console.log('[Drag Stop]');
-      this.draggingMenu = false;
-    },
-
-    changeTab(i) {
-      this.actualTab = i;
-
-      const link = this.$refs[`tab${i}`].$el.getAttribute('data-link');
-
-      this.$router.push(link);
+          return {
+            left: `${this.$refs.nav.getBoundingClientRect().left + prev}px`,
+            width: `${size}px`
+          }
+        })
     }
-  },
-
-  watch: {
-    actualTab: actualTabChange
   },
 
   mounted() {
-    const button = Object
-      .keys(this.$refs)
-      .filter(name => {
-        return this.$route.path.indexOf(this.$refs[name].$el.getAttribute('data-link')) > -1;
-      })
-      .pop();
-
-    if (button) {
-      this.actualTab = parseInt(button.slice('tab'.length), 10);
-      actualTabChange.call(this, this.actualTab);
-    } else {
-      actualTabChange.call(this, 0);
-    }
+    this.calcUnderlines()
   }
 }
 </script>
 
-<style lang="scss">
-@import '../main.scss';
-
-header {
-  background-color: $mainBackgroundColor;
-  box-sizing: border-box;
-  color: $menuColor;
-  height: $menuHeight;
-  padding: $menuPadding;
-
-  h1 {
-    border-bottom: $menuBorder;
-    font-size: $nameSize;
-    margin: 0;
-    padding-bottom: $namePadding;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
-
-  .menu {
-    height: $itemsHeight;
-    opacity: 1;
-    overflow: hidden;
-    transition: opacity .2s ease;
-    white-space: nowrap;
-
-    .app.app--on-article & {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .button {
-      color: $menuColor;
-      cursor: pointer;
-      display: inline-block;
-      font-family: $sourceSansPro;
-      font-size: $menuFontSize;
-      font-weight: 400;
-      height: $itemsHeight;
-      letter-spacing: 2px;
-      line-height: $itemsHeight;
-      padding: 0 $itemsHeaderPadding;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .underline {
-      background-color: $itemsBorderColor;
-      height: $itemsBorderHeight;
-      position: relative;
-      top: -1 * ($itemsBorderHeight + 1px);
-      @include transition(left, width);
-    }
-  }
+<style>
+.gj-header {
+  background-color: #0d3745;
+  padding: 20px 20px 0;
+  position: relative;
 }
 
-@include minMedia(0px, 450px) {
-  .menu.showIconLeft:before {
-    content: '\E408';
-    font-family: 'icomoon' !important;
-    font-size: 24px;
-    left: 10px;
-    margin-top: 13px;
-    position: absolute;
-  }
+.gj-header__title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-family: Lato, sans-serif;
+  font-size: 32px;
+  font-weight: 200;
+  margin: 0;
+  padding: 0 0 11px 16px;
+}
 
-  .menu.showIconRight:after {
-    content: '\E409';
-    font-family: 'icomoon' !important;
-    font-size: 24px;
-    margin-top: -46px;
-    position: absolute;
-    right: 5px;
+.gj-header__nav {
+  display: flex;
+}
+
+.gj-header__nav__link {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Lato, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  height: 57px;
+  letter-spacing: 1px;
+  line-height: 57px;
+  padding: 0 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.gj-header__nav__space {
+  flex: 1;
+}
+
+.gj-header__nav__button {
+  align-self: center;
+  background-color: #1abc9c;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+              0 3px 1px -2px rgba(0, 0, 0, .2),
+              0 1px 5px 0 rgba(0, 0, 0, .12);
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .1s background-color ease-out;
+}
+
+.gj-header__nav__button:hover {
+  background-color: #17a689;
+  transition: .1s background-color ease-in;
+}
+
+.gj-header__underline {
+  background-color: #1abc9c;
+  bottom: 0;
+  height: 4px;
+  position: absolute;
+  transition: left .2s ease, width .2s ease;
+}
+
+@media (max-width: 768px) {
+  .gj-header__title {
+    font-size: 28px;
   }
 }
 </style>
