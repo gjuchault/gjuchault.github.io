@@ -113,7 +113,7 @@ export default {
 }
 
 .gj-project__info__description {
-  color: #888;
+  color: #444;
   margin-bottom: 0;
   text-align: justify;
 }
