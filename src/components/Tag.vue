@@ -14,7 +14,7 @@ export default {
 .gj-tag {
   background-color: #1abc9c;
   border-radius: 4px;
-  color: #fff;
+  color: #222;
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
