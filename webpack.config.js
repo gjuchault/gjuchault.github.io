@@ -81,12 +81,13 @@ if (process.env.NODE_ENV === 'production') {
       mergeStaticsConfig: true
     }),
     new GenerateJsonPlugin('manifest.json', {
-      'short_name': 'Gabriel Juchault',
-      'name': 'Gabriel Juchault Personal website',
-      'icons': [],
-      'start_url': '/index.html',
-      'display': 'standalone',
-      'orientation': 'landscape'
+      short_name: 'Gabriel Juchault',
+      name: 'Gabriel Juchault Personal website',
+      theme_color: '#0d3745',
+      icons: [],
+      start_url: '/index.html',
+      display: 'standalone',
+      orientation: 'landscape'
     })
   ])
 }
