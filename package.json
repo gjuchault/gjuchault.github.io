@@ -25,6 +25,8 @@
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "file-loader": "^0.11.1",
+    "generate-json-webpack-plugin": "^0.2.1",
+    "pwa-manifest-webpack-plugin": "^1.0.5",
     "slugify": "^1.1.0",
     "style-loader": "^0.16.1",
     "vue-loader": "^11.1.4",

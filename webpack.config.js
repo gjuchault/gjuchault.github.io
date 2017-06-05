@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const GenerateJsonPlugin = require('generate-json-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -50,11 +52,11 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: 'source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = false
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -70,6 +72,21 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'gjuchault',
+      filename: 'service-worker.js',
+      minify: false,
+      staticFileGlobs: [ '/index.html' ],
+      mergeStaticsConfig: true
+    }),
+    new GenerateJsonPlugin('manifest.json', {
+      'short_name': 'Gabriel Juchault',
+      'name': 'Gabriel Juchault Personal website',
+      'icons': [],
+      'start_url': '/index.html',
+      'display': 'standalone',
+      'orientation': 'landscape'
     })
   ])
 }

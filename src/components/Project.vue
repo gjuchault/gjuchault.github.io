@@ -11,8 +11,7 @@
         <div class="gj-project__info__tags">
           <gj-tag
             v-for="tag in project.tags"
-            :tag="tag"
-            :key="tag"></gj-tag>
+            :key="tag">{{ tag }}</gj-tag>
         </div>
         <p class="gj-project__info__description">{{ project.description }}</p>
       </div>

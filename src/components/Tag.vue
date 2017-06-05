@@ -1,14 +1,8 @@
 <template>
   <span class="gj-tag">
-    {{ tag }}
+    <slot></slot>
   </span>
 </template>
-
-<script>
-export default {
-  props: ['tag']
-}
-</script>
 
 <style>
 .gj-tag {

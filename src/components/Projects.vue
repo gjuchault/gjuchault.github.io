@@ -9,12 +9,14 @@
 
 <script>
 import Project from './Project.vue'
+import ProjectPlaceholder from './Project-Placeholder.vue'
 
 import projects from '../../data/projects.json'
 
 export default {
   components: {
-    'gj-project': Project
+    'gj-project': Project,
+    'gj-project-placeholder': ProjectPlaceholder
   },
 
   data() {
