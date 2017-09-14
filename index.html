@@ -5,6 +5,212 @@
     <title>Gabriel Juchault</title>
   <link href="/dist/styles.7749aab6.css" rel="stylesheet"><link href="/dist/styles.58d3ae10.css" rel="stylesheet"></head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header>
+        <h1>Gabriel Juchault</h1>
+        <div class="line"></div>
+        <h2>Web developer</h2>
+      </header>
+      <main>
+        <div class="project">
+          <div class="project__image">
+          </div>
+          <h3>&nbsp;</h3>
+          <div class="project__tags">
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+          </div>
+          <p class="project__description">
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+          </p>
+        </div>
+        <div class="project">
+          <div class="project__image">
+          </div>
+          <h3>&nbsp;</h3>
+          <div class="project__tags">
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+          </div>
+          <p class="project__description">
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+          </p>
+        </div>
+        <div class="project">
+          <div class="project__image">
+          </div>
+          <h3>&nbsp;</h3>
+          <div class="project__tags">
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+            <span class="tag">&nbsp;</span>
+          </div>
+          <p class="project__description">
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+            <span class="project__description__line">&nbsp;</span>
+          </p>
+        </div>
+        <footer>
+          <a target="_blank" href="https://github.com/gjuchault">
+            Github
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/gjuchault/">
+            LinkedIn
+          </a>
+        </footer>
+      </main>
+
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          margin: 0;
+          color: #222;
+          font-family: Roboto, sans-serif;
+          font-size: 16px;
+        }
+
+        header {
+          height: 25vh;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding-bottom: 30px;
+
+          background-color: #0d3745;
+          color: #fff;
+          text-align: center;
+        }
+
+        header > h1 {
+          margin: 0;
+
+          font-size: 3rem;
+
+          font-weight: 200;
+        }
+
+        header > .line {
+          height: 1px;
+          width: 250px;
+          margin: 10px auto;
+
+          background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        header > h2 {
+          margin: 0;
+
+          font-weight: 200;
+        }
+
+        main {
+          min-height: 75vh;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .project {
+          width: calc(100vw - 40px);
+          margin: 40px 20px 0 20px;
+
+          border-radius: 2px;
+          border: 1px solid rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                      0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .project:last-child {
+          margin-bottom: 40px;
+        }
+
+        .project__image {
+          height: 150px;
+
+          align-items: flex-end;
+          display: flex;
+          position: relative;
+
+          background-color: #eee;
+          border-bottom: 1px solid #dedede;
+          padding: 24px;
+        }
+
+        .project > h3 {
+          margin: 2rem 2rem 1rem 2rem;
+          max-width: 300px;
+
+          background-color: #ddd;
+          font-size: 2rem;
+        }
+
+        .project__tags {
+          margin: 0 2rem 2rem 2rem;
+        }
+
+        .tag {
+          background-color: #1abc9c;
+          display: inline-block;
+          min-width: 35px;
+        }
+
+        .tag:not(:last-child) {
+          margin-right: 5px;
+        }
+
+        .project__description {
+          margin-bottom: 2rem;
+        }
+
+        .project__description__line {
+            background-color: #ddd;
+            display: block;
+            margin: 0 2rem 5px 2rem;
+        }
+
+        .project__description__line:last-child {
+          margin-bottom: 0;
+        }
+
+        footer {
+          display: flex;
+          justify-content: center;
+
+          background-color: #0d3745;
+          padding: 1rem;
+        }
+
+        footer a {
+          display: inline-flex;
+          justify-content: center;
+
+          color: #fff;
+          text-decoration: none;
+        }
+
+        footer a:first-child {
+          margin-right: 1rem;
+        }
+
+        @media (min-width: 650px) {
+          .project {
+            width: 600px;
+          }
+        }
+      </style>
+    </div>
   <script type="text/javascript" src="/dist/manifest.0de72af2.js"></script><script type="text/javascript" src="/dist/vendor.919a47b5.js"></script><script type="text/javascript" src="/dist/client.1eb15766.js"></script></body>
 </html>
