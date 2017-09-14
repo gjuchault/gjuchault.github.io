@@ -1,0 +1,10 @@
+title: UTT Arena 2016
+picture:
+  src: arena2016.jpg
+  baseWidth: 1680
+  count: 3
+url: http://ungdev.github.io/arena.utt.fr-2016/
+desc: Website for the UTT Arena 2016, a 300-players LAN party.
+tags:
+  - JS
+  - HTML5

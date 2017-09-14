@@ -1,0 +1,11 @@
+title: Tambouille Électorale
+picture:
+  src: tambouille.jpg
+  baseWidth: 1200
+  count: 3
+url: https://tambouille-electorale.fr/
+desc: Political website for 2017's France election. Lists fiddling candidates in some parties.
+tags:
+  - JS
+  - HTML5
+  - Political

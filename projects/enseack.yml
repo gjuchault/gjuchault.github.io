@@ -1,0 +1,11 @@
+title: Enseack
+picture:
+  src: enseack.jpg
+  baseWidth: 1000
+  count: 2
+url: https://github.com/RobotikUTT/enseack-2015/tree/centralServer
+desc: Participed to an electronics hackathon. We realized a small prototype within 48 hours that was designed to evaluate benefits of a solar panel.
+tags:
+  - JS
+  - HTML5
+  - robotics

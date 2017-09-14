@@ -1,0 +1,10 @@
+title: UTT Arena 2015
+picture:
+  src: arena2015.jpg
+  baseWidth: 1590
+  count: 3
+url: http://ungdev.github.io/arena.utt.fr-2015/
+desc: Website for the UTT Arena 2015, a 300-players LAN party.
+tags:
+  - JS
+  - HTML5

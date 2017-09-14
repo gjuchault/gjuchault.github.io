@@ -1,0 +1,11 @@
+title: Buckless
+picture:
+  src: buckless.jpg
+  baseWidth: 600
+  count: 2
+url: https://buckless.com/
+desc: A NFC tag payment system for events, structures and retail. Founder and developer.
+tags:
+  - node
+  - docker
+  - founding

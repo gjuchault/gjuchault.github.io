@@ -1,0 +1,11 @@
+title: Analysons le FN
+picture:
+  src: analysonsFN.jpg
+  baseWidth: 700
+  count: 2
+url: https://analysonslefn.fr/
+desc: Political website for 2017's France election. Huge analysis of how incoherent the extreme right party political program is.
+tags:
+  - JS
+  - HTML5
+  - Political
