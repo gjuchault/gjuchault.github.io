@@ -79,7 +79,7 @@ export default {
 
   methods: {
     zoom() {
-      this.currentImageZoomed = this.project.picture
+      this.currentImageZoomed = this.project.picture.src.replace('.jpg', `@x${this.project.picture.count}.jpg`)
 
       this.$fullscreen.classList.add('fullscreen')
 

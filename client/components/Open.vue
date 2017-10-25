@@ -1,6 +1,6 @@
 <template>
   <div class="open">
-    <a target="_blank" rel="noopener" :href="link" @mouseenter="show" @mouseleave="hide" @transitionend="clean">
+    <a target="_blank" rel="noopener" :href="link" @click.stop>
       <img :src="openInNewTabIcon" height="32" width="32" alt="Open in new tab">
       <span>Open in new tab</span>
     </a>
@@ -16,35 +16,6 @@ export default {
   data() {
     return {
       openInNewTabIcon
-    }
-  },
-
-  mounted() {
-    this.$link = this.$el.children[0]
-  },
-
-  methods: {
-    show() {
-      this.$el.style.width = '189px'
-      this.$link.style.transform = 'translateX(135px)'
-
-      setTimeout(() => {
-        this.$link.style.transition = '.2s transform ease-out'
-        this.$link.style.transform = 'translateX(0)'
-      })
-    },
-
-    hide() {
-      this.isHiding = true
-      this.$link.style.transform = 'translateX(135px)'
-    },
-
-    clean() {
-      if (this.isHiding) {
-        this.isHiding = false
-        this.$el.removeAttribute('style')
-        this.$link.removeAttribute('style')
-      }
     }
   }
 }
