@@ -1,15 +1,15 @@
 CACHE MANIFEST
-#ver:25/10/2017 à 17:24:10
+#ver:17/12/2017 à 22:34:24
 #plugin:4.8.3
 
 CACHE:
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-36x36.png
-/dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-48x48.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-72x72.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-96x96.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-144x144.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-192x192.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-256x256.png
+/dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-48x48.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-384x384.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/android-chrome-512x512.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-icon-57x57.png
@@ -33,9 +33,9 @@ CACHE:
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-320x460.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-640x920.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-640x1096.png
+/dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-768x1004.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-748x1024.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-750x1294.png
-/dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-768x1004.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-1182x2208.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-1242x2148.png
 /dist/icons-96e72b3a2c3b0840af7ef90c3184124b/apple-touch-startup-image-1536x2008.png
@@ -47,34 +47,34 @@ CACHE:
 /dist/client.73eeaf81.js
 /dist/vendor.487bc952.js
 /dist/manifest.27ff2fe4.js
-/dist/styles.bb057881.css
+/dist/styles.8cac828c.css
 /dist/styles.7749aab6.css
 /dist/../
 /dist/analysonsFN.jpg
-/dist/arena2015@x2.jpg
-/dist/analysonsFN@x2.jpg
 /dist/arena2015.jpg
+/dist/analysonsFN@x2.jpg
+/dist/arena2015@x2.jpg
 /dist/arena2016.jpg
 /dist/arena2016@x2.jpg
 /dist/buckless.jpg
-/dist/buckless@x2.jpg
-/dist/arena2015@x3.jpg
 /dist/arena2016@x3.jpg
+/dist/arena2015@x3.jpg
+/dist/buckless@x2.jpg
 /dist/cice.jpg
 /dist/cice@x2.jpg
 /dist/cice@x3.jpg
 /dist/enseack.jpg
-/dist/fuzzy.jpg
-/dist/icon.png
 /dist/enseack@x2.jpg
-/dist/fuzzy@x3.jpg
+/dist/icon.png
+/dist/fuzzy.jpg
 /dist/fuzzy@x2.jpg
+/dist/fuzzy@x3.jpg
 /dist/requelize.jpg
-/dist/tambouille.jpg
 /dist/requelize@x2.jpg
-/dist/tambouille@x3.jpg
 /dist/requelize@x3.jpg
+/dist/tambouille.jpg
 /dist/tambouille@x2.jpg
+/dist/tambouille@x3.jpg
 /dist/manifest.e102149a028552f032ae4b2cb9c5dfcf.json
 /dist/icon_512x512.e3a9bad0593029b0588db9e61f49dd99.png
 /dist/icon_384x384.d1519ad3380c28a03375a8f3e41c8b1c.png

@@ -30,7 +30,8 @@ export default {
   height: 54px;
   width: 54px;
 
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
   overflow: hidden;
 }
 
@@ -43,8 +44,6 @@ export default {
   align-items: center;
 
   background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 0;
   color: #fff;
   cursor: pointer;
   overflow: hidden;
