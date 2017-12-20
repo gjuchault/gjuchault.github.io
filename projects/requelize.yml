@@ -3,7 +3,7 @@ picture:
   src: requelize.jpg
   baseWidth: 1920
   count: 3
-url: https://github.com/buckutt/requelize
+url: https://github.com/buckless/requelize
 desc: A RethinkDB ORM, with a lot of nice features (3-way relationships, Joi schemas, RxJS feeds, etc.).
 tags:
   - ORM
