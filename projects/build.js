@@ -19,7 +19,14 @@ async function build () {
       .map(file => readFile(path.join(projectsPath, file), 'utf8'))
   )
 
-  projects = projects.map(project => yaml.safeLoad(project))
+  projects = projects
+    .map(project => yaml.safeLoad(project))
+    .map((project) => {
+      project.date = (project.date === 'active') ? new Date() : new Date(project.date)
+
+      return project
+    })
+    .sort((a, b) => b.date - a.date)
 
   await writeFile(output, JSON.stringify(projects))
 }
@@ -27,8 +34,6 @@ async function build () {
 console.log('Building projects')
 
 build()
-  .then(() => {
-  })
   .catch((err) => {
     throw err
   })

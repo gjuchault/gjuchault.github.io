@@ -1,0 +1,12 @@
+title: UTT Arena 2017
+picture:
+  src: arena2017.jpg
+  baseWidth: 1680
+  count: 3
+url: https://arena.utt.fr/
+date: 2017-10-02
+desc: Website for the UTT Arena 2017, a 400-players LAN party. Also co-ordinator of the whole event.
+tags:
+  - JS
+  - HTML5
+  - Event organizer

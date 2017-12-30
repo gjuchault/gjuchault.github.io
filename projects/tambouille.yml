@@ -4,6 +4,7 @@ picture:
   baseWidth: 1200
   count: 3
 url: https://tambouille-electorale.fr/
+date: 2017-06-05
 desc: Political website for 2017's France election. Lists fiddling candidates in some parties.
 tags:
   - JS

@@ -4,6 +4,7 @@ picture:
   baseWidth: 600
   count: 2
 url: https://buckless.com/
+date: active
 desc: A NFC tag payment system for events, structures and retail. Founder and developer.
 tags:
   - node

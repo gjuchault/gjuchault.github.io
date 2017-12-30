@@ -4,6 +4,7 @@ picture:
   baseWidth: 1000
   count: 2
 url: https://github.com/RobotikUTT/enseack-2015/tree/centralServer
+date: 2015-11-20
 desc: Participed to an electronics hackathon. We realized a small prototype within 48 hours that was designed to evaluate benefits of a solar panel.
 tags:
   - JS

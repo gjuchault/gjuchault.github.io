@@ -4,6 +4,7 @@ picture:
   baseWidth: 1857
   count: 3
 url: https://github.com/gjuchault/fuzzyjs
+date: 2016-07-28
 desc: fuzzyjs is a fuzzy search algorithm in javascript.
 tags:
   - JS

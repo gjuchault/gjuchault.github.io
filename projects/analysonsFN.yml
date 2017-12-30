@@ -4,6 +4,7 @@ picture:
   baseWidth: 700
   count: 2
 url: https://analysonslefn.fr/
+date: 2017-06-01
 desc: Political website for 2017's France election. Huge analysis of how incoherent the extreme right party political program is.
 tags:
   - JS
